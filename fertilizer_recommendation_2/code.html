@@ -1,0 +1,367 @@
+<html class="light" lang="en"><head></head><body class="font-body-md text-body-md overflow-x-hidden">```html
+
+
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra | Fertilizer Recommendation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#0d631b",
+                    "surface-container-high": "#e6e9e4",
+                    "primary-fixed-dim": "#88d982",
+                    "secondary": "#126d27",
+                    "surface-container-highest": "#e0e3df",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-tertiary-container": "#ffefd6",
+                    "surface-container-low": "#f1f4ef",
+                    "on-secondary-container": "#19722b",
+                    "secondary-container": "#9cf49c",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#83da85",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary-fixed": "#261a00",
+                    "tertiary-fixed": "#ffdf9e",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f7faf5",
+                    "surface": "#f7faf5",
+                    "surface-tint": "#1b6d24",
+                    "outline-variant": "#bfcaba",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005318",
+                    "primary-fixed": "#a3f69c",
+                    "primary-container": "#2e7d32",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#ecefea",
+                    "on-surface": "#181c1a",
+                    "on-secondary-fixed": "#002105",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d8dbd6",
+                    "tertiary": "#6d5100",
+                    "outline": "#707a6c",
+                    "surface-variant": "#e0e3df",
+                    "inverse-primary": "#88d982",
+                    "on-background": "#181c1a",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-surface-variant": "#40493d",
+                    "background": "#f7faf5",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#cbffc2",
+                    "inverse-surface": "#2d312e",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .nutrient-bar {
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            background-color: #F7FAF5;
+            color: #181C1A;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-3" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+<h1 class="font-display-lg text-title-lg text-primary tracking-tight">Fertilizer Recommendation</h1>
+</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+<a class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/50" href="{{DATA:SCREEN:SCREEN_2}}">
+<img class="w-full h-full object-cover" data-alt="A portrait of a modern, smiling Indian farmer wearing a professional collared shirt, captured in soft, natural daylight with a blurred lush green farmland background. The style is clean, high-resolution, and fits a premium agricultural technology application's user profile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8AUw3VaKDXf_cgMOLm-sex7AexajrAf-_-TEuLO3C-AQf2FSOPqGqzzIDj9MmW5P3TNv1yfCWZ4I-sUK0CafN1fjm7W2GsmRT5Dudj6TEgghtzDG7yCi1h7HeuGCk6Fe7h9-EXSdH3O8dmt34ogiH1tL1N_dvvlXzr5YWR2dYUf3efpdeXjNgIfrMeIdJbl5cNDXdUC3EgEV9u7_ihKxyO0SpAcojzqWKZUT_ri2tP-5b48RNI8"/>
+</a>
+</div>
+</header>
+<main class="mt-20 pb-32 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Hero Summary Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-lg mb-xl">
+<div class="md:col-span-8">
+<div class="glass-card rounded-[24px] p-xl relative overflow-hidden bg-primary/5">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-sm">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full font-label-sm text-label-sm">Plot #42: Paddy Field</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Analyzed 2 hours ago</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg mb-md text-on-surface">Soil Nutrient Deficiency Detected</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl">Your soil shows a critical shortage of Nitrogen and Phosphorous. Immediate application is recommended for optimal yield.</p>
+</div>
+<!-- Decorative Graphic -->
+<div class="absolute right-0 bottom-0 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-[160px] translate-x-12 translate-y-12 text-primary">analytics</span>
+</div>
+</div>
+</div>
+<!-- Estimated Cost Card -->
+<div class="md:col-span-4">
+<div class="bg-white rounded-[24px] p-xl border border-outline-variant/30 flex flex-col justify-between h-full">
+<div>
+<span class="text-on-surface-variant font-label-lg text-label-lg uppercase tracking-wider">Estimated Total Cost</span>
+<div class="flex items-baseline gap-1 mt-2">
+<span class="text-primary font-display-lg text-[40px] leading-none">₹12,450</span>
+<span class="text-on-surface-variant font-body-md text-body-md">/ 2 Acres</span>
+</div>
+</div>
+<a class="mt-lg w-full bg-primary text-on-primary py-4 rounded-[16px] font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-95 transition-transform" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined">shopping_bag</span>
+                        Purchase Recommendation
+                    </a>
+</div>
+</div>
+</section>
+<!-- Nutrient Balance Infographic -->
+<section class="mb-xl">
+<h3 class="font-title-lg text-title-lg mb-lg">Nutrient Analysis (N-P-K)</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Nitrogen -->
+<div class="bg-white rounded-[24px] p-lg border border-outline-variant/30">
+<div class="flex justify-between items-center mb-md">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Nitrogen (N)</span>
+<span class="text-error font-label-lg text-label-lg">Low (28%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="nutrient-bar h-full bg-error rounded-full" style="width: 28%"></div>
+</div>
+<p class="mt-md text-on-surface-variant font-body-md text-body-md">Required for leafy growth and protein synthesis.</p>
+</div>
+<!-- Phosphorus -->
+<div class="bg-white rounded-[24px] p-lg border border-outline-variant/30">
+<div class="flex justify-between items-center mb-md">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Phosphorus (P)</span>
+<span class="text-tertiary-container font-label-lg text-label-lg">Moderate (45%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="nutrient-bar h-full bg-tertiary-container rounded-full" style="width: 45%"></div>
+</div>
+<p class="mt-md text-on-surface-variant font-body-md text-body-md">Essential for root development and flowering.</p>
+</div>
+<!-- Potassium -->
+<div class="bg-white rounded-[24px] p-lg border border-outline-variant/30">
+<div class="flex justify-between items-center mb-md">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Potassium (K)</span>
+<span class="text-primary font-label-lg text-label-lg">Optimum (82%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="nutrient-bar h-full bg-primary rounded-full" style="width: 82%"></div>
+</div>
+<p class="mt-md text-on-surface-variant font-body-md text-body-md">Improves disease resistance and water use.</p>
+</div>
+</div>
+</section>
+<!-- Recommendations Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+<!-- Chemical Fertilizer Option -->
+<div class="flex flex-col gap-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+<h3 class="font-title-lg text-title-lg">Chemical Solution</h3>
+</div>
+<div class="bg-white rounded-[24px] p-xl border border-outline-variant/30 flex flex-col gap-xl">
+<div class="flex gap-md items-start">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up photograph of high-quality urea fertilizer granules, showing clean white spherical prills in a professional, clinical agricultural setting. The lighting is bright and even, highlighting the texture and purity of the chemical fertilizer, fitting a premium digital farming application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv5DHZk7pSZz0TdWzxen4Y1gMXStBPqFVWWJzroTJX61b_4DaJY-qUYhopq-wJgkCN-5Gck2lW63EJ4oDfJs_ggGfay4bP1G_NqGwPzXgHAAyzwlXoU-hTlb1kXsDZFI_70446OxexWacbdINOQHdXIuCbah33uemB-DWbXzXjhOtJ0h0UItNdXwqWQiJwEFydDLOZh9d0gRmGluInG21PcF1MsdgSnIIoxJpK0QWdp1RvhnZzbJQ"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-label-lg text-label-lg text-on-surface">Urea (46% Nitrogen)</h4>
+<span class="font-label-lg text-label-lg text-primary">₹560 / 50kg</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mt-1">Primary source of fast-acting nitrogen.</p>
+</div>
+</div>
+<div class="bg-primary/5 rounded-[16px] p-lg">
+<h5 class="font-label-lg text-label-lg text-primary mb-sm">Dosing Instructions</h5>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-body-md">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-0.5">scale</span>
+<span>Apply <strong>120kg per acre</strong> divided into three split doses.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-0.5">wb_sunny</span>
+<span>Apply during morning hours when soil moisture is high.</span>
+</li>
+</ul>
+</div>
+<div class="flex gap-md items-start">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up macro photo of DAP (Diammonium Phosphate) fertilizer granules, showing their characteristic grayish-brown granular texture. The image is captured with shallow depth of field in a clean laboratory or agricultural testing environment, focusing on the quality and consistency of the fertilizer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB2Njur7RpGQFYPaGCDAg6Q_UaOlXckNiWefky95eRUi4qbGP-pKy1KWDy1SiICDMYsz7B8RIodK3deUu11Pi8AyScXgUHaJtSetO2TNi-GY9Je33oTQem5VgI5Hjfp1Qzans23P576cE2i3IiBlKeb63lLb_U3nIBHvCVMvnEWAEUAJeNWsch_CG8BUbhf2rXRf_IeUX-IyUmOHm40O0YLnGD4uRgTN0dDcqAeaHhz_taZ7XFk-k"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-label-lg text-label-lg text-on-surface">DAP (18:46:0)</h4>
+<span class="font-label-lg text-label-lg text-primary">₹1,350 / 50kg</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mt-1">High phosphorus content for root health.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Organic Alternatives -->
+<div class="flex flex-col gap-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">eco</span>
+<h3 class="font-title-lg text-title-lg">Organic Alternatives</h3>
+</div>
+<div class="bg-white rounded-[24px] p-xl border border-outline-variant/30 flex flex-col gap-xl">
+<div class="flex gap-md items-start">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A top-down view of dark, rich vermicompost showing its earthy texture and organic matter. The lighting is warm and natural, emphasizing the fertility and natural quality of the organic fertilizer. The background is a clean wooden surface, evoking a sustainable and natural farming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR51KWWcYRgwTAUBb-AhZnJFMnGWKnz7bXUPMFvDEE0YmjaDRRxlh2CWH0iEb8kKXKsP8m15CruF0KnXsYweYtu9ovLp-j4wAkdoECoMfSngNFpaaD8lGshMA0TFgKwX54ttooqkkHjROH-mgdsXvLlM59naG8aF3bAi-yb3fZ957BwQCshtc8XqBYjJUjoNEd4fVpM8Infe8TayhKU0-kd5APPzaRKmE8hmhTWGrGSYnf3SRH4Gw"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-label-lg text-label-lg text-on-surface">Premium Vermicompost</h4>
+<span class="font-label-lg text-label-lg text-primary">₹300 / 40kg</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mt-1">Improves soil structure and long-term fertility.</p>
+</div>
+</div>
+<div class="bg-tertiary/10 rounded-[16px] p-lg border border-tertiary/20">
+<h5 class="font-label-lg text-label-lg text-tertiary-container mb-sm italic flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+                            AI Recommendation
+                        </h5>
+<p class="text-on-surface-variant font-body-md text-body-md">
+                            Mixing 20% organic manure with chemical urea can reduce leaching and improve nitrogen uptake by up to 15%.
+                        </p>
+</div>
+<div class="flex gap-md items-start">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Bottles of concentrated liquid bio-fertilizer on a clean, modern agricultural lab shelf. The bottles have professional labels with plant icons, representing advanced bio-technology in farming. The lighting is crisp and cool, suggesting a precision-grade biological product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAm6EH2Db_vcBa_s7KdXFr4o0Hhkm154zbbe7dONk0_hH5HBbmZ10DJWhHbhfUOIdc68L8z6b1ivU1eICIIMM7Ry_yk-O560Ik2QJlzJMSQxPuKxugsZ0t6UkgbmitnJp17HBpHHPbWrP8IAyfkvxBRP7ZFFOmxn5MhLVH_GRvVhpQS26N93nPFykLXZaNAwDItA_HnNnDkLCP1LRbhtHu9-BhE4zRGYSmuxUGONIblS8Xzw2vXBg"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-label-lg text-label-lg text-on-surface">Azotobacter Liquid</h4>
+<span class="font-label-lg text-label-lg text-primary">₹180 / 500ml</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mt-1">Atmospheric nitrogen fixing bio-agent.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Nearby Dealer CTA -->
+<section class="mt-xl mb-xl">
+<div class="glass-card rounded-[32px] p-xl flex flex-col md:flex-row items-center justify-between gap-xl">
+<div class="flex items-center gap-lg">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]">storefront</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg mb-1">Check Local Availability</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Find 12 certified dealers near your current location.</p>
+</div>
+</div>
+<a class="px-xl py-4 bg-primary text-on-primary rounded-full font-label-lg text-label-lg flex items-center gap-2 hover:bg-primary/90 transition-colors" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined">location_on</span>
+                    Nearby Dealer
+                </a>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Floating Glassmorphic) -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 dark:bg-surface-container/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-colors p-2" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-colors p-2" href="{{DATA:SCREEN:SCREEN_8}}">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-2 shadow-lg scale-110" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-colors p-2" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-colors p-2" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for nutrient bars
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.nutrient-bar');
+            bars.forEach(bar => {
+                const targetWidth = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 300);
+            });
+        });
+    </script>
+```</body></html>

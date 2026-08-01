@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra - Government Schemes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#83da85",
+                        "surface-container": "#ecefea",
+                        "on-surface": "#181c1a",
+                        "on-surface-variant": "#40493d",
+                        "on-background": "#181c1a",
+                        "surface-container-high": "#e6e9e4",
+                        "surface-container-highest": "#e0e3df",
+                        "tertiary-fixed": "#ffdf9e",
+                        "surface": "#f7faf5",
+                        "on-secondary-fixed": "#002105",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "surface-container-low": "#f1f4ef",
+                        "outline-variant": "#bfcaba",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#005318",
+                        "on-primary-fixed": "#002204",
+                        "tertiary": "#6d5100",
+                        "primary": "#0d631b",
+                        "secondary": "#126d27",
+                        "inverse-on-surface": "#eff2ed",
+                        "inverse-primary": "#88d982",
+                        "outline": "#707a6c",
+                        "secondary-container": "#9cf49c",
+                        "tertiary-container": "#8c6800",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#cbffc2",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dbd6",
+                        "primary-container": "#2e7d32",
+                        "surface-bright": "#f7faf5",
+                        "inverse-surface": "#2d312e",
+                        "background": "#f7faf5",
+                        "surface-variant": "#e0e3df",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#88d982",
+                        "on-tertiary-container": "#ffefd6",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#1b6d24",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#a3f69c",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#005312",
+                        "secondary-fixed": "#9ff79f",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-secondary-container": "#19722b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #f7faf5; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scheme-chip-active {
+            background-color: #2e7d32;
+            color: #cbffc2;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional profile portrait of a modern farmer wearing a clean checkered shirt, set against a soft-focus agricultural landscape in the golden hour. The lighting is warm and natural, reflecting a sense of pride and technical expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMspKKLR9kR5afOs959K_ayp3uZJ9oh6kaDoYkEjeaPE8A0UO4yyS_uhee8TcHsuuL1kKHHFNq-Mw94JPvRyG7i4aldYWq3GLaaazdbgY1RAcYWoqQKnGD0kw5mjdDDYFHDmjIXF4J1FV-qb-7XyTJPG_xft1MOCI-zaNHFlOamtp48AZAKJFqLh6FLU3kQgPeSyJ1u_007Sirzd7Mg6blZVjuqo2QpJeabr8hLYmbTHAVYuyLzWY"/>
+</div>
+<h1 class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-5xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-lg">
+<div class="relative h-48 rounded-[24px] overflow-hidden mb-md shadow-lg">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A breathtaking aerial view of lush green terraced farmlands at sunrise, with misty hills in the background. The scene is illuminated by soft, golden light, creating a peaceful and prosperous atmosphere that embodies the future of sustainable agriculture. The style is clean, high-definition photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUZqUhvh7dBfnDMvCjkRb-fOPWGs3R9GwG5TLErgjqx0fW6ajNsV_R54jZzpSrroZPDm1_ILV9lkbL88GHfOh2P9p114ifdrMMCo-yVdg_4F0C1WrEhCrrdMkX1JZWacyyYWmyzBdfjQRag_ZhERk3KUWLqWAF9m7c8JHg1b2XltlYN55otNN45VJiMteQx1boTA84-mFpS44QTKDvfJM3tsNamYJdsDOIQrokppzcFxnVGKXeSjk"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10 p-lg flex flex-col justify-center h-full text-white">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-xs">Government Schemes</h2>
+<p class="font-body-md opacity-90 max-w-[240px]">Access exclusive financial aids and technical support for your farm.</p>
+</div>
+</div>
+</section>
+<!-- Status Tracking Overview -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-title-lg text-title-lg text-primary">My Applications</h3>
+<span class="text-primary font-label-lg flex items-center gap-1 cursor-pointer">History <span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Status Card 1 -->
+<div class="glass-card rounded-[24px] p-md flex items-center gap-md border-l-4 border-primary">
+<div class="w-12 h-12 rounded-2xl bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant">Approved</p>
+<h4 class="font-title-lg text-primary">PM-Kisan</h4>
+</div>
+</div>
+<!-- Status Card 2 -->
+<div class="glass-card rounded-[24px] p-md flex items-center gap-md border-l-4 border-tertiary">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">pending</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant">Pending Review</p>
+<h4 class="font-title-lg text-tertiary">KCC Loan</h4>
+</div>
+</div>
+<!-- Status Card 3 -->
+<div class="glass-card rounded-[24px] p-md flex items-center gap-md border-l-4 border-secondary">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant">New Eligibility</p>
+<h4 class="font-title-lg text-secondary">Soil Health</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Schemes Feed -->
+<section>
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-title-lg text-title-lg text-primary">Available Schemes</h3>
+<div class="flex gap-2">
+<div class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container text-label-sm font-medium">All</div>
+<div class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-medium">Subsidy</div>
+</div>
+</div>
+<!-- Bento Grid Layout for Schemes -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Scheme Card: PM-Kisan -->
+<div class="glass-card rounded-[24px] p-lg flex flex-col gap-md hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-3xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[32px]">payments</span>
+</div>
+<span class="bg-secondary-container/30 text-secondary px-3 py-1 rounded-full font-label-sm">Active Now</span>
+</div>
+<div>
+<h4 class="font-title-lg text-primary text-[24px] mb-xs">PM-Kisan Samman Nidhi</h4>
+<p class="text-on-surface-variant font-body-md line-clamp-2">Direct income support of ₹6,000 per year in three equal installments to small and marginal farmer families.</p>
+</div>
+<div class="flex flex-wrap gap-2 py-2">
+<div class="flex items-center gap-1 text-label-sm text-on-surface-variant bg-surface-container px-3 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]">groups</span> Small Farmers
+                        </div>
+<div class="flex items-center gap-1 text-label-sm text-on-surface-variant bg-surface-container px-3 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]">event</span> 4 Monthly
+                        </div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-[16px] font-label-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                        Apply Now <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+<!-- Scheme Card: Soil Health Card -->
+<div class="glass-card rounded-[24px] p-lg flex flex-col gap-md hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-3xl bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[32px]">potted_plant</span>
+</div>
+<span class="bg-primary-container/30 text-primary px-3 py-1 rounded-full font-label-sm">Highly Recommended</span>
+</div>
+<div>
+<h4 class="font-title-lg text-primary text-[24px] mb-xs">Soil Health Card</h4>
+<p class="text-on-surface-variant font-body-md line-clamp-2">Free soil testing and customized crop-specific nutrient management recommendations for better yields.</p>
+</div>
+<div class="flex flex-wrap gap-2 py-2">
+<div class="flex items-center gap-1 text-label-sm text-on-surface-variant bg-surface-container px-3 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]">science</span> Lab Testing
+                        </div>
+<div class="flex items-center gap-1 text-label-sm text-on-surface-variant bg-surface-container px-3 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]">history</span> 3 Year Cycle
+                        </div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-[16px] font-label-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                        View Details <span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<!-- Scheme Card: PM-FBY -->
+<div class="glass-card rounded-[24px] p-lg flex flex-col gap-md hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-3xl bg-tertiary-fixed/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[32px]">shield_with_heart</span>
+</div>
+</div>
+<div>
+<h4 class="font-title-lg text-primary text-[24px] mb-xs">PM-Fasal Bima Yojana</h4>
+<p class="text-on-surface-variant font-body-md line-clamp-2">Crop insurance against non-preventable natural risks like drought, flood, and pests with minimal premium.</p>
+</div>
+<div class="p-sm bg-surface-container-low rounded-xl">
+<p class="font-label-sm text-on-surface-variant mb-1">Benefit Summary:</p>
+<p class="font-body-md font-semibold text-primary">Up to 90% premium subsidy by Government</p>
+</div>
+<button class="mt-auto w-full py-3 border border-primary text-primary rounded-[16px] font-label-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                        Check Eligibility <span class="material-symbols-outlined text-[18px]">verified_user</span>
+</button>
+</div>
+<!-- Scheme Card: Solar Pump (KUSUM) -->
+<div class="glass-card rounded-[24px] p-lg flex flex-col gap-md hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-3xl bg-on-secondary-fixed/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[32px]">wb_sunny</span>
+</div>
+</div>
+<div>
+<h4 class="font-title-lg text-primary text-[24px] mb-xs">PM-KUSUM (Solar Pump)</h4>
+<p class="text-on-surface-variant font-body-md line-clamp-2">Financial support to install grid-connected solar power plants and solar irrigation pumps on barren land.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-label-sm">
+<span class="text-on-surface-variant">Central Subsidy</span>
+<span class="text-primary font-bold">30%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[30%]"></div>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-[16px] font-label-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                        Claim Subsidy <span class="material-symbols-outlined text-[18px]">add_task</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Eligibility Helper Tooltip/CTA -->
+<div class="mt-xl glass-card rounded-[32px] p-lg bg-primary-container/10 border-dashed border-2 border-primary/30 flex flex-col md:flex-row items-center gap-lg">
+<div class="flex-1 text-center md:text-left">
+<h4 class="font-headline-lg-mobile text-primary mb-xs">Not sure where to start?</h4>
+<p class="font-body-md text-on-surface-variant">Our AI assistant can analyze your farm profile and suggest the most beneficial schemes for you.</p>
+</div>
+<button class="px-8 py-4 bg-primary text-white rounded-full font-label-lg shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span> Start AI Eligibility Check
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

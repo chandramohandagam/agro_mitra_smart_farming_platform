@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra | Enterprise Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ffefd6",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-secondary-fixed": "#002105",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-surface-variant": "#40493d",
+                    "inverse-surface": "#2d312e",
+                    "surface-bright": "#f7faf5",
+                    "secondary": "#126d27",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdf9e",
+                    "tertiary": "#6d5100",
+                    "on-tertiary-fixed": "#261a00",
+                    "surface-container": "#ecefea",
+                    "primary": "#0d631b",
+                    "background": "#f7faf5",
+                    "surface-container-low": "#f1f4ef",
+                    "secondary-fixed-dim": "#83da85",
+                    "surface-container-highest": "#e0e3df",
+                    "on-primary-container": "#cbffc2",
+                    "on-secondary-fixed-variant": "#005318",
+                    "on-secondary-container": "#19722b",
+                    "outline": "#707a6c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005312",
+                    "primary-container": "#2e7d32",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#181c1a",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#9cf49c",
+                    "primary-fixed": "#a3f69c",
+                    "surface-variant": "#e0e3df",
+                    "on-background": "#181c1a",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e9e4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#1b6d24",
+                    "inverse-primary": "#88d982",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "surface-dim": "#d8dbd6",
+                    "surface": "#f7faf5",
+                    "primary-fixed-dim": "#88d982"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        body {
+            background-color: #f7faf5;
+            color: #181c1a;
+            overflow-x: hidden;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfcaba;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm px-margin-mobile md:px-margin-desktop h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<h1 class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</h1>
+</div>
+<!-- Desktop Nav Items -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-label-lg flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="text-on-surface-variant font-label-lg hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Products
+            </a>
+<a class="text-on-surface-variant font-label-lg hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">groups</span> Dealers
+            </a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full border-2 border-primary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a modern business executive for an agricultural technology company. The individual has a friendly but authoritative expression, with soft, natural lighting that emphasizes a clean, corporate light-mode aesthetic. The background is a slightly blurred high-end office environment with green indoor plants to match the brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjZnPaVEFawNoTlF4TRvkM3pnvs70FpI4UKAobQHAGEZktrczZK5efTkfsZI44ah2i9SH3acODFWy_BCdkrRfE_3bDl-Igdv_GSOT0d-rf7jJZGWfJkzPpe6RpCKlA18r4f-ZmzxxmWxT63nAkw85v5n_myvlELhRGPViVhu_nrDIPoJpYSixUQoiKjvEc-gWI3WEK2fN3Qqm1sFxYLplBzfusegxZMuLT9eVOhrfyWV9GQ8h0K0c"/>
+</div>
+</div>
+</header>
+<main class="mt-24 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Header & Quick Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+<div>
+<p class="text-primary font-label-lg uppercase tracking-widest mb-1">Enterprise Overview</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Agro Mitra Insights</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-[16px] font-label-lg flex items-center gap-2 active:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined">rocket_launch</span> Launch Campaign
+                </button>
+<button class="bg-white border border-outline-variant text-primary px-6 py-3 rounded-[16px] font-label-lg flex items-center gap-2 active:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined">add</span> Add Product
+                </button>
+<button class="bg-white border border-outline-variant text-primary px-6 py-3 rounded-[16px] font-label-lg flex items-center gap-2 active:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined">description</span> Report
+                </button>
+</div>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Revenue KPI -->
+<div class="bg-white p-6 rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-on-surface-variant font-label-lg">Total Revenue</p>
+<h3 class="text-[32px] font-bold text-on-surface">₹4.82 Cr</h3>
+</div>
+<div class="bg-primary/10 text-primary p-2 rounded-lg">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-primary font-label-sm">
+<span class="bg-primary/10 px-2 py-0.5 rounded-full">+12.4% vs last month</span>
+</div>
+<!-- Mini Growth Chart Illustration -->
+<div class="mt-6 h-12 w-full flex items-end gap-1 opacity-40 group-hover:opacity-80 transition-opacity">
+<div class="bg-primary w-full h-[40%] rounded-t-sm"></div>
+<div class="bg-primary w-full h-[60%] rounded-t-sm"></div>
+<div class="bg-primary w-full h-[45%] rounded-t-sm"></div>
+<div class="bg-primary w-full h-[75%] rounded-t-sm"></div>
+<div class="bg-primary w-full h-[90%] rounded-t-sm"></div>
+<div class="bg-primary w-full h-[85%] rounded-t-sm"></div>
+<div class="bg-primary w-full h-[100%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- Dealers KPI -->
+<div class="bg-white p-6 rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-on-surface-variant font-label-lg">Total Dealers</p>
+<h3 class="text-[32px] font-bold text-on-surface">1,248</h3>
+</div>
+<div class="bg-secondary/10 text-secondary p-2 rounded-lg">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm">
+<span>Active in 14 Districts</span>
+</div>
+<div class="mt-8 flex -space-x-3 overflow-hidden">
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-slate-200"></div>
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-slate-300"></div>
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-slate-400"></div>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-high ring-2 ring-white text-[10px] font-bold text-on-surface-variant">+42</div>
+</div>
+</div>
+<!-- Campaigns KPI -->
+<div class="bg-white p-6 rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-on-surface-variant font-label-lg">Active Campaigns</p>
+<h3 class="text-[32px] font-bold text-on-surface">18</h3>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container p-2 rounded-lg">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 mb-2">
+<div class="bg-primary h-2 rounded-full w-[75%]"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-sm">
+<span>Target: 24 active</span>
+<span>75% Reach</span>
+</div>
+</div>
+</div>
+<!-- Main Content Bento -->
+<div class="bento-grid">
+<!-- Regional Performance (Large Map Card) -->
+<div class="col-span-12 lg:col-span-8 bg-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface">Regional Sales Performance</h4>
+<p class="text-on-surface-variant text-body-md">Heatmap of agricultural supply distribution</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-full px-4 py-2 font-label-lg text-on-surface-variant focus:ring-primary">
+<option>Q3 2024</option>
+<option>Q2 2024</option>
+</select>
+</div>
+<div class="flex-1 min-h-[350px] relative rounded-[20px] overflow-hidden bg-surface-container-low group">
+<img class="w-full h-full object-cover" data-alt="A stylized, modern geographical map of India with data visualization overlays. The map features various shades of nature-green and deep forest-green to represent sales density and market penetration. Glowing data points and subtle topographical details enhance the professional, high-tech agricultural feel. The lighting is clean and bright, maintaining a premium enterprise software aesthetic." data-location="India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBr3tYhjsvGiS6UrNXfWjHDZF8KMu2TxGLT-Y1MYqS7IucnbbXTQBLEYSDP0PvyjFMAx1ODXrSPGdQedW2JPd6pqaimsExIs-E2p-l8ifJ8CJ5jQzHuzZ8Zi2mwM80HMpV3Uf3wQ8OYP8DkVNUYiFF9CnFSpt89UuBg2ofFvQog9Va2RPMmd_NeMYB5EtpMygsi6gE0hNiu3rKzaVK8eRZ_tO1fecPyCAyq81vZxW-lw6JQ9V02S0"/>
+<!-- Floating Map Legends -->
+<div class="absolute bottom-4 left-4 glass-card p-4 rounded-xl flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-label-sm text-on-surface">High Growth (&gt;20%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary-fixed-dim"></span>
+<span class="text-label-sm text-on-surface">Stable (5-10%)</span>
+</div>
+</div>
+<!-- Overlay Detail Tooltip -->
+<div class="absolute top-1/2 left-1/3 glass-card p-3 rounded-xl shadow-lg border border-primary/20 animate-pulse pointer-events-none">
+<p class="font-bold text-primary">Maharashtra</p>
+<p class="text-label-sm text-on-surface-variant">₹1.2 Cr Revenue</p>
+</div>
+</div>
+</div>
+<!-- Product Performance (Side Card) -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="bg-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30 flex-1">
+<h4 class="font-title-lg text-title-lg text-on-surface mb-4">Top Products</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close-up, high-quality macro photograph of professional agricultural nitrogen fertilizer granules. The lighting is crisp and bright, showing the texture of the product against a clean, minimal white background. The composition is focused and modern, fitting for a product performance dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa9an1S-QWi7jBdyrU_s35pUJMHrenNpapV2wSGcOalqr2EAO4YgCEFAz9khBrQqlmJpDkxpaA-kdPaSEQOtzOKyn-99aupDtUzy9HnP14aB4mR4LCCkw6-Ygy-8BHsQCeAoNtvuk-9Pz9P3BxNoqPPNl89lWWNbj1FTMlYSSTsDlY1W1dlT6DXkChpsSL_xkRPxmJq1HTfDddrrDzlUfwQayHbAv8s7lt2nVKrn8eA7IHcDRBhxs"/>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Nitro-Grow Plus</p>
+<p class="text-label-sm text-on-surface-variant">4.2k Units Sold</p>
+</div>
+<div class="text-primary font-bold">₹24.5L</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A high-end product photo of a premium botanical bio-pesticide bottle. The bottle is sleek and modern with a nature-inspired green label. It is placed in a clean, brightly lit studio setting with soft shadows, embodying an eco-friendly and high-technology agricultural brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXp-kLGN_277jn1oEelu3YOeTGvu9yuuLW_6NWc8wjC4BH0IsA1WfEfABjzGP10lycSnAeReGpV4LUBy1nMoo0F8YfbqJUSDRN8BjMYTslkba5kfXIbVML4fwo0-bowzUUfu-iTK-xbHM9N06FPbP4y0rXe4mCK5Xz1KBYa5yW3EW-gGmo5rQxNkHVeiBaTimM07m1Ufrj6luyQ-AJrwgTxAWqhmNx5nmFI8z-lPZuD7oNDGGpOds"/>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Eco-Shield Bio</p>
+<p class="text-label-sm text-on-surface-variant">3.8k Units Sold</p>
+</div>
+<div class="text-primary font-bold">₹18.2L</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional product shot of high-yield hybrid maize seeds in a modern, durable plastic packaging. The packaging features clear branding with green and gold accents. The shot is well-lit and professional, emphasizing growth and agricultural success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfrl-sMDPxv6agd8H9LRzLbGofOZ9PJOq1my4211rgPCIsqSRqgXJNaAvG-wmZnEDmk96PkyxWN0OPNdNCMt-9wQmwDoBSFUnKFAdlnXLUKq4jWmK0as3yNja01e_YrH4B5OU9T7bORv2H0QleehNCRS0vCX_VgxLqPX9pjG8XPn89r43_4BF1YMCKZ6okxzsu4MHpE02ANZAK_5Rzr603wgkjM7n7jepHwV4XPGjxdXt4AttshXY"/>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Hybrid Corn V4</p>
+<p class="text-label-sm text-on-surface-variant">2.1k Units Sold</p>
+</div>
+<div class="text-primary font-bold">₹12.1L</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-primary font-label-lg border-t border-outline-variant/30 hover:bg-surface-container-low transition-colors rounded-b-[24px]">View Full Inventory</button>
+</div>
+</div>
+<!-- Dealer Network Summary -->
+<div class="col-span-12 bg-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-title-lg text-title-lg text-on-surface">Dealer Network Activity</h4>
+<button class="text-primary font-label-lg flex items-center gap-1">Manage Dealers <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant border-b border-outline-variant/30">
+<th class="pb-4 font-label-lg">Dealer Name</th>
+<th class="pb-4 font-label-lg">Region</th>
+<th class="pb-4 font-label-lg">YTD Revenue</th>
+<th class="pb-4 font-label-lg">Status</th>
+<th class="pb-4 font-label-lg text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr>
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">RK</div>
+<div>
+<p class="font-bold text-on-surface">Radha Krishna Agro</p>
+<p class="text-label-sm text-on-surface-variant">Ludhiana, Punjab</p>
+</div>
+</div>
+</td>
+<td class="py-4 text-on-surface-variant">North India</td>
+<td class="py-4 font-bold">₹14.2 Lakh</td>
+<td class="py-4">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-sm">Top Performer</span>
+</td>
+<td class="py-4 text-right">
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high text-on-surface-variant"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr>
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim flex items-center justify-center text-on-primary-fixed font-bold text-xs">FS</div>
+<div>
+<p class="font-bold text-on-surface">Farmer's Soul Pvt Ltd</p>
+<p class="text-label-sm text-on-surface-variant">Nashik, MH</p>
+</div>
+</div>
+</td>
+<td class="py-4 text-on-surface-variant">West India</td>
+<td class="py-4 font-bold">₹9.8 Lakh</td>
+<td class="py-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm">Active</span>
+</td>
+<td class="py-4 text-right">
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high text-on-surface-variant"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr>
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold text-xs">GS</div>
+<div>
+<p class="font-bold text-on-surface">Green Seed Co.</p>
+<p class="text-label-sm text-on-surface-variant">Salem, TN</p>
+</div>
+</div>
+</td>
+<td class="py-4 text-on-surface-variant">South India</td>
+<td class="py-4 font-bold">₹1.2 Lakh</td>
+<td class="py-4">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-label-sm">New Onboard</span>
+</td>
+<td class="py-4 text-right">
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high text-on-surface-variant"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-8 left-4 right-4 h-16 bg-white/70 backdrop-blur-2xl rounded-full z-50 border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2 md:hidden">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<!-- Floating Background Atmosphere -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-30">
+<div class="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] animate-pulse"></div>
+<div class="absolute bottom-[10%] right-[5%] w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+</div>
+<script>
+        // Simple micro-interactions for interactivity
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Simulating some dynamic "live" data update every 10 seconds
+        setInterval(() => {
+            console.log("Refreshing dashboard data...");
+            // Real application would fetch new numbers here
+        }, 10000);
+    </script>
+</body></html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra | Community Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#0d631b",
+                    "surface-container-high": "#e6e9e4",
+                    "primary-fixed-dim": "#88d982",
+                    "secondary": "#126d27",
+                    "surface-container-highest": "#e0e3df",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-tertiary-container": "#ffefd6",
+                    "surface-container-low": "#f1f4ef",
+                    "on-secondary-container": "#19722b",
+                    "secondary-container": "#9cf49c",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#83da85",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary-fixed": "#261a00",
+                    "tertiary-fixed": "#ffdf9e",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f7faf5",
+                    "surface": "#f7faf5",
+                    "surface-tint": "#1b6d24",
+                    "outline-variant": "#bfcaba",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005318",
+                    "primary-fixed": "#a3f69c",
+                    "primary-container": "#2e7d32",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#ecefea",
+                    "on-surface": "#181c1a",
+                    "on-secondary-fixed": "#002105",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d8dbd6",
+                    "tertiary": "#6d5100",
+                    "outline": "#707a6c",
+                    "surface-variant": "#e0e3df",
+                    "inverse-primary": "#88d982",
+                    "on-background": "#181c1a",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-surface-variant": "#40493d",
+                    "background": "#f7faf5",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#cbffc2",
+                    "inverse-surface": "#2d312e",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-3 hover:opacity-80 transition-opacity" href="{{DATA:SCREEN:SCREEN_11}}">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a cheerful Indian woman farmer in modern traditional attire, smiling warmly into the camera. The background is a soft-focus lush green organic field at golden hour. The image has a clean, high-resolution aesthetic with natural lighting and vibrant earth tones reflecting the brand's trustworthy and growth-oriented personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHNnzynvKA-gndY0ZBTpqBopLbcAqhKzHF_ildQz6WBJe6X0QeKIYsDb2ObN9WAi0HD92kNGLPIPLii8jwlpdpS7WhErYVwpt5KqvXCb-jh9wXScvcGYtFN6D1bdc7JpGlFUA2qgHqoF5DCLDH8rjvIb6XObX-SpHA7fHklWLt33TH9n3ktOxNGvNtSSsp2C_71CcNgpperWhuhXfvLmdATriJ_UvmM0t9nqtnNF918lTP4uLenvY"/>
+</div>
+<h1 class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</h1>
+</a>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-20 pb-32 max-w-2xl mx-auto px-4 lg:px-0">
+<!-- Search & Filter Bar -->
+<section class="mb-6">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary/20 text-body-lg transition-all placeholder:text-on-surface-variant/60" placeholder="Search discussions, experts..." type="text"/>
+</div>
+<!-- Categories Horizontal Scroll -->
+<div class="flex gap-2 mt-4 overflow-x-auto hide-scrollbar py-2">
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-lg text-label-lg whitespace-nowrap active:scale-95 transition-transform">
+                    All Feed
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg whitespace-nowrap hover:bg-surface-container-high active:scale-95 transition-transform">
+                    Discussion
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg whitespace-nowrap hover:bg-surface-container-high active:scale-95 transition-transform">
+                    Videos
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg whitespace-nowrap hover:bg-surface-container-high active:scale-95 transition-transform">
+                    Success Stories
+                </button>
+</div>
+</section>
+<!-- Feed List -->
+<div class="space-y-6">
+<!-- Post Card 1: Expert Success Story -->
+<article class="bg-white rounded-[24px] border border-outline-variant/30 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="p-5">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<a class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed-dim block" href="{{DATA:SCREEN:SCREEN_2}}">
+<img class="w-full h-full object-cover" data-alt="Profile headshot of a middle-aged male agricultural expert with glasses and a kind smile. He is wearing a professional beige vest over a light green shirt. Behind him is a blurred research greenhouse. High-quality commercial photography style, soft natural lighting, earthy green and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-WU9Fglv3z0HkWMzxkGtWIVoUKaelbAGhow3c-fW7MgIKpPJr6E99kAm5JsafYov6ccG4eMoHdW3R7VCTYccH0ie7zfpH5DzZQFB6djckzhJYImZzr8SBOYuKpcvowFOdtDdRDZvBkqTtY_TqXPTh_OLI-pT2t3_hhY7gpsXSKHK3HfFEL6_0ZSrZlvbVm4K4VYST_Fnz5HoV-cJ5GbGF04zATxjIrcuQf3xRn57zSnuoucg0atI"/>
+</a>
+<div>
+<h3 class="font-title-lg text-body-lg font-bold flex items-center gap-1">
+                                    Dr. Rajesh Kumar
+                                    <span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h3>
+<p class="text-label-sm text-on-surface-variant">Soil Scientist • 2h ago</p>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="mb-4">
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary-fixed-dim text-label-sm font-label-sm mb-2 inline-block">Success Story</span>
+<p class="text-body-lg text-on-surface leading-relaxed">
+                            Proud to share the results from the organic turmeric pilot in Satara. By switching to regenerative irrigation techniques, farmers saw a 30% increase in yield while reducing water consumption by half. Growth is possible when we respect the soil.
+                        </p>
+</div>
+</div>
+<div class="relative h-64 w-full">
+<img class="w-full h-full object-cover" data-alt="A wide, vibrant panoramic shot of a flourishing organic turmeric field in rural India during sunrise. The long, green leaves of the turmeric plants are covered in morning dew, catching the warm orange light of the sun. The soil is dark and rich, showing modern micro-irrigation tubes. High-tech agricultural aesthetic, sharp focus, serene and productive atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv5fbQ5-JX0LOX2zH4HN8dd5bT90t6DwHJyVODFKb6ZDf_l9EQM9TlfJ5B7opDQ0ZXDXtYdAhJzgZ6JOXPdr-N0HCrec2BylLn2xU1-BU5ZQWQkW7CChv8c6g1sDbW1DmxwOcqQ0dWA4lPgYCAl10bm9g24Ks8-RoTO8Avo_2hX-28Eo591RiBet_Sav6EfaIX3xpV61AToz9wTdIcY2R0zsilwqGBIHuTkQVumNPw689WvISx7s8"/>
+</div>
+<div class="px-5 py-4 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+<span class="text-label-lg font-label-lg">1.2k</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-label-lg font-label-lg">84</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</article>
+<!-- Post Card 2: Discussion -->
+<article class="bg-white rounded-[24px] border border-outline-variant/30 p-5 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<a class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high block" href="{{DATA:SCREEN:SCREEN_2}}">
+<img class="w-full h-full object-cover" data-alt="Close up of a young Indian male farmer with a determined expression, wearing a simple blue cotton shirt. He is standing in front of a slightly blurred tractor. The lighting is bright mid-day sun, creating high contrast. Professional agricultural photography style, natural and authentic tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnn9TMjSidibnVfgWr4NQhbp1NmNw4OCnBWrtTvveROm-4DwTEL6YUHQMKsnOwlQfAoxej-3qRT9s1GB9WfDmv6wuCFdtTG4SBQZenqJOqLyoeRWAzPp7TmcVYMVLLKFDZrowHV3wJyKTmv4f-KBE3JxpUG7HgxXWwyc8qPk5cKf5qgd24XZFb4zDX5gHkbn-3k2KC87axe0nm0VG9RsESVuIy2vIrncqbZERUHTeagGNE2_tH2yA"/>
+</a>
+<div>
+<h3 class="font-title-lg text-body-lg font-bold">Amit Deshmukh</h3>
+<p class="text-label-sm text-on-surface-variant">Wheat Farmer • 5h ago</p>
+</div>
+</div>
+<button class="px-4 py-1.5 rounded-full border border-primary text-primary text-label-lg font-label-lg hover:bg-primary/5 active:scale-95 transition-all">Follow</button>
+</div>
+<div class="mb-4">
+<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container text-label-sm font-label-sm mb-2 inline-block">Discussion</span>
+<h4 class="font-title-lg text-title-lg mb-2 text-on-surface">Dealing with yellow rust in wheat?</h4>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                        I've noticed some yellow patches on my lower leaves this morning. Temperatures are dropping in the north. Has anyone else started seeing this? What's your first line of defense this season?
+                    </p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-label-lg font-label-lg">342</span>
+</button>
+<button class="flex items-center gap-2 text-primary font-semibold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="text-label-lg font-label-lg">156 Comments</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Post Card 3: Video -->
+<article class="bg-white rounded-[24px] border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="Iconic logo of an organic farming university or collective, featuring a stylized sprout emerging from a gear, representing technology and nature. Soft green and gold color scheme. Digital illustration style, clean and modern corporate branding aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnZo7FVw-0orR4iwdx3Zr14Z9WodIujtyTXm92HP382k5KbIaOqe3_fes-05FBP0l2hJCydT4tqIDrZdHeW0tnWGlDdX1JGIB6skSFWamJBuuFbRG01YBZLl-25097dJYH4cw5XJrgtNzTh4vL7S-gPM5thPUKiZezB877JpvNYREse-MuJ7PWT6o56mOVzjbpAA5mmPnZCgA-vdrUbgcYD1IHOSpFlT_UJNQwtbvoEJj7_MbW-zs"/>
+</div>
+<div>
+<h3 class="font-title-lg text-body-lg font-bold">AgriTech Collective</h3>
+<p class="text-label-sm text-on-surface-variant">Educational Channel • 1d ago</p>
+</div>
+</div>
+</div>
+<div class="relative group cursor-pointer aspect-video bg-black flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity" data-alt="High-quality cinematic frame of a modern drone flying low over a lush green paddy field. The drone is sleek and silver, equipped with advanced cameras. The background shows a vast expanse of rice fields under a clear blue sky. Bright, high-key lighting, professional cinematic color grading with rich greens and vibrant blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcDsns3sgABqUByr8PLkM-1r56N_k_Q6jInIGM3r5SqLaj0EYmiXQI2Bvk61Q-C6Z03Y_BfR91_0_O26n7P4BcHdZpMX10F6I43lyj7X-IgZIzjmJAo0BW8vIVXyi4h_86vZRD3a3kDOXpMiJ0WBT8IeQgTjG9uB2al8wsGIBilBdEKWoLqsS2eTrEZl24-m1VXCXRBjKZESB_0WL9rpjb8A5PEF4Cew25qz4CeYUKwPdhnXpY52E"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-[48px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded text-white text-label-sm">12:45</div>
+</div>
+<div class="p-5">
+<h4 class="font-title-lg text-title-lg mb-2">How to use Drones for Fertilizer Sprays</h4>
+<p class="text-body-md text-on-surface-variant line-clamp-2">Complete guide on navigating drone regulations and optimizing spray patterns for maximum coverage with 20% less liquid.</p>
+</div>
+</article>
+</div>
+</main>
+<!-- Floating Action Button -->
+<a class="fixed bottom-28 right-6 z-50 flex items-center gap-3 bg-primary text-on-primary px-6 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all group" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-lg text-label-lg">Ask Expert</span>
+</a>
+<!-- Bottom Navigation Bar (Floating Glassmorphic) -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-14 h-14 transition-all" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-0.5">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-14 h-14 transition-all" href="{{DATA:SCREEN:SCREEN_8}}">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm mt-0.5">My Farm</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 h-10 transition-all" href="{{DATA:SCREEN:SCREEN_145}}">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm text-label-sm mt-0.5">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-14 h-14 transition-all" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm mt-0.5">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-14 h-14 transition-all" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction logic for category chips
+        document.querySelectorAll('.hide-scrollbar button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.hide-scrollbar button').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-on-primary');
+                    btn.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+                });
+                button.classList.remove('bg-surface-container-highest', 'text-on-surface-variant');
+                button.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Add interaction for post engagement (visual feedback)
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            if(icon.innerText === 'favorite') {
+                icon.parentElement.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const isFilled = this.querySelector('span').style.fontVariationSettings.includes("'FILL' 1");
+                    this.querySelector('span').style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                    this.classList.toggle('text-red-500');
+                    this.classList.toggle('text-on-surface-variant');
+                    
+                    const countSpan = this.querySelector('.text-label-lg');
+                    let count = parseFloat(countSpan.innerText.replace('k', '')) * (countSpan.innerText.includes('k') ? 1000 : 1);
+                    count = isFilled ? count - 1 : count + 1;
+                    countSpan.innerText = count >= 1000 ? (count/1000).toFixed(1) + 'k' : count;
+                });
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra - Logistics</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .shadow-soft {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .shadow-lifted {
+            box-shadow: 0 8px 24px rgba(13, 99, 27, 0.08);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfcaba;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#0d631b",
+                        "surface-container-high": "#e6e9e4",
+                        "primary-fixed-dim": "#88d982",
+                        "secondary": "#126d27",
+                        "surface-container-highest": "#e0e3df",
+                        "inverse-on-surface": "#eff2ed",
+                        "on-tertiary-container": "#ffefd6",
+                        "surface-container-low": "#f1f4ef",
+                        "on-secondary-container": "#19722b",
+                        "secondary-container": "#9cf49c",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#83da85",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-tertiary-fixed": "#261a00",
+                        "tertiary-fixed": "#ffdf9e",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7faf5",
+                        "surface": "#f7faf5",
+                        "surface-tint": "#1b6d24",
+                        "outline-variant": "#bfcaba",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005318",
+                        "primary-fixed": "#a3f69c",
+                        "primary-container": "#2e7d32",
+                        "secondary-fixed": "#9ff79f",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#ecefea",
+                        "on-surface": "#181c1a",
+                        "on-secondary-fixed": "#002105",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#8c6800",
+                        "on-primary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d8dbd6",
+                        "tertiary": "#6d5100",
+                        "outline": "#707a6c",
+                        "surface-variant": "#e0e3df",
+                        "inverse-primary": "#88d982",
+                        "on-background": "#181c1a",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-surface-variant": "#40493d",
+                        "background": "#f7faf5",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#cbffc2",
+                        "inverse-surface": "#2d312e",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-title-lg text-primary dark:text-primary-fixed tracking-tight">Agro Mitra Logistics</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a South Asian farmer in his late 40s, smiling warmly, wearing a clean linen shirt. The background is a soft-focus lush green agricultural landscape under morning sunlight. The lighting is high-key and natural, creating a trustworthy and professional agribusiness persona in a modern light-mode UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB6cRjYABarqtqCEfpOdz6mFW_IB1qwUfPuov2TawEDtCqnC0GSa246Yget9eAlGD_Rht-J5QvpG0jCN0yQXrgnAYQO77r55EzsFWBHQ3AHHaqa58W71uUkR9qnxhpFCkf6fq9NYLy3DOnLXwT6tVbXPIicVfx5RJct4c-CmQ4gOwgCTyiFbSPKaHkpzcScEBT7uGo-81sqdKGM6P_A4WlKoX4h5e06hHgUJAOx2EBZEb9yrAa6O8"/>
+</div>
+</div>
+</header>
+<!-- Map Canvas (Full Screen Background) -->
+<main class="relative pt-16 h-screen w-full overflow-hidden">
+<!-- Mock Map Background -->
+<div class="absolute inset-0 w-full h-full z-0 grayscale-[0.2] brightness-[1.05]" data-alt="A clean, high-resolution minimalist aerial map of agricultural fields in Punjab, India, featuring vibrant green crop circles and rectangular plots. The road networks are crisp and clearly defined in soft grey, with small icon-like vehicle markers moving along them. The aesthetic is inspired by Google Maps with a focus on agriculture, using a light and airy color palette consistent with a modern green-themed design system." data-location="Punjab, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWnH44gSuRZFM4oV8h7A05YPXHmAye2I8kKGCS3a_6RMNzhDpAFJS22evjZIYjWaoABXmOBFKa9I50tyefKWS5WVzvMDopKoh_zOyzwqrcX2-G06e6Rg7HOkOpEn0PcibRFZIrGdrw0TrukkYJWUrkN4YbGMLT8XfcmHBoj56m6wqAS7HLtitEWU0RLjr4TXfJUXROYJHxeBPEsILbyNFzY-_vyBKaacEy6cVjVpLiEIrr2TyQzVI')">
+</div>
+<!-- Map UI Overlays -->
+<div class="absolute top-20 left-margin-mobile z-10 flex flex-col gap-4 max-w-sm w-[calc(100%-32px)]">
+<!-- Search & Route Card -->
+<div class="glass-panel p-4 rounded-[24px] shadow-soft border border-outline-variant/30">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Pickup</p>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-on-surface" readonly="" type="text" value="Green Valley Farms, Gate 4"/>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-error text-[20px]">flag</span>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Destination</p>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-on-surface" placeholder="Where to?" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Sheet Selection UI -->
+<div class="absolute bottom-32 left-0 right-0 z-20 px-margin-mobile">
+<div class="glass-panel max-w-2xl mx-auto rounded-[32px] p-6 shadow-[0_8px_40px_rgba(0,0,0,0.12)] border border-white/40">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-title-lg text-title-lg text-on-surface">Select Vehicle</h2>
+<div class="flex items-center gap-2 px-3 py-1 bg-primary-container/20 text-primary rounded-full">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-label-lg font-label-lg">ASAP Delivery</span>
+</div>
+</div>
+<!-- Vehicle Bento Grid -->
+<div class="grid grid-cols-3 gap-4 mb-8">
+<!-- Tractor Card -->
+<button class="vehicle-card group flex flex-col items-center gap-3 p-4 rounded-3xl bg-surface-container border-2 border-transparent hover:border-primary/20 transition-all active:scale-95 duration-200" onclick="selectVehicle(this)">
+<div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-soft group-[.selected]:bg-primary-container">
+<span class="material-symbols-outlined text-[32px] text-primary group-[.selected]:text-white">agriculture</span>
+</div>
+<div class="text-center">
+<p class="font-label-lg text-label-lg text-on-surface">Tractor</p>
+<p class="text-label-sm text-on-surface-variant">4 min away</p>
+</div>
+<p class="font-bold text-primary">₹450</p>
+</button>
+<!-- Mini Truck Card (Selected by Default) -->
+<button class="vehicle-card selected group flex flex-col items-center gap-3 p-4 rounded-3xl bg-primary-container/10 border-2 border-primary transition-all active:scale-95 duration-200" onclick="selectVehicle(this)">
+<div class="w-14 h-14 bg-primary-container rounded-2xl flex items-center justify-center shadow-soft">
+<span class="material-symbols-outlined text-[32px] text-white">local_shipping</span>
+</div>
+<div class="text-center">
+<p class="font-label-lg text-label-lg text-on-surface">Mini Truck</p>
+<p class="text-label-sm text-on-surface-variant">8 min away</p>
+</div>
+<p class="font-bold text-primary">₹820</p>
+</button>
+<!-- Heavy Truck Card -->
+<button class="vehicle-card group flex flex-col items-center gap-3 p-4 rounded-3xl bg-surface-container border-2 border-transparent hover:border-primary/20 transition-all active:scale-95 duration-200" onclick="selectVehicle(this)">
+<div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-soft group-[.selected]:bg-primary-container">
+<span class="material-symbols-outlined text-[32px] text-primary group-[.selected]:text-white">fire_truck</span>
+</div>
+<div class="text-center">
+<p class="font-label-lg text-label-lg text-on-surface">Truck</p>
+<p class="text-label-sm text-on-surface-variant">12 min away</p>
+</div>
+<p class="font-bold text-primary">₹1,450</p>
+</button>
+</div>
+<!-- Booking Actions -->
+<div class="flex items-center gap-4">
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary text-white py-4 rounded-2xl font-title-lg text-label-lg shadow-lifted hover:brightness-110 active:scale-95 transition-all">
+                        Book Now
+                    </button>
+<button class="w-14 h-14 flex items-center justify-center rounded-2xl bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">payments</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Floating Glass) -->
+<nav class="fixed bottom-8 left-4 right-4 h-16 max-w-lg mx-auto rounded-full bg-white/70 dark:bg-surface-container/70 backdrop-blur-2xl z-50 border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Micro-interactions Script -->
+<script>
+        function selectVehicle(element) {
+            // Remove selection from all cards
+            document.querySelectorAll('.vehicle-card').forEach(card => {
+                card.classList.remove('selected', 'bg-primary-container/10', 'border-primary');
+                card.classList.add('bg-surface-container', 'border-transparent');
+                
+                const iconContainer = card.querySelector('div:first-child');
+                iconContainer.classList.remove('bg-primary-container');
+                iconContainer.classList.add('bg-white');
+                
+                const icon = iconContainer.querySelector('span');
+                icon.classList.remove('text-white');
+                icon.classList.add('text-primary');
+            });
+
+            // Add selection to clicked card
+            element.classList.add('selected', 'bg-primary-container/10', 'border-primary');
+            element.classList.remove('bg-surface-container', 'border-transparent');
+            
+            const iconContainer = element.querySelector('div:first-child');
+            iconContainer.classList.add('bg-primary-container');
+            iconContainer.classList.remove('bg-white');
+            
+            const icon = iconContainer.querySelector('span');
+            icon.classList.add('text-white');
+            icon.classList.remove('text-primary');
+            
+            // Haptic feedback simulation
+            if (window.navigator && window.navigator.vibrate) {
+                window.navigator.vibrate(10);
+            }
+        }
+    </script>
+</body></html>

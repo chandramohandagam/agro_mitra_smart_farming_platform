@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra | Dealer Inventory</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3df",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#126d27",
+                        "on-background": "#181c1a",
+                        "surface-dim": "#d8dbd6",
+                        "secondary-fixed-dim": "#83da85",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#88d982",
+                        "surface-container": "#ecefea",
+                        "surface": "#f7faf5",
+                        "on-surface-variant": "#40493d",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#eff2ed",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#8c6800",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-primary-fixed": "#002204",
+                        "on-error": "#ffffff",
+                        "on-surface": "#181c1a",
+                        "tertiary-fixed": "#ffdf9e",
+                        "on-secondary-fixed": "#002105",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#a3f69c",
+                        "surface-container-low": "#f1f4ef",
+                        "surface-container-highest": "#e0e3df",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "on-tertiary-container": "#ffefd6",
+                        "secondary-container": "#9cf49c",
+                        "outline": "#707a6c",
+                        "inverse-surface": "#2d312e",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "primary": "#0d631b",
+                        "secondary-fixed": "#9ff79f",
+                        "surface-tint": "#1b6d24",
+                        "on-secondary-fixed-variant": "#005318",
+                        "tertiary": "#6d5100",
+                        "background": "#f7faf5",
+                        "outline-variant": "#bfcaba",
+                        "inverse-primary": "#88d982",
+                        "on-primary-container": "#cbffc2",
+                        "on-secondary-container": "#19722b",
+                        "surface-container-high": "#e6e9e4",
+                        "primary-container": "#2e7d32",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f7faf5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfcaba;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm h-16 flex items-center justify-between px-margin-mobile">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a senior agribusiness dealer in a clean, modern office setting. The lighting is soft and natural, emphasizing trust and expertise. He is wearing a smart-casual olive green shirt that fits the agricultural brand theme. The background is slightly blurred, showing a high-tech farming operations dashboard on a large screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc05T9dGcEvt0-BJ1RHUcO3AkM5WQZEM3X2LmzCGVbzW8HKaWOoHB4lcp35GcMaVBNWi27tI0SJrmn1aABqmiocxH_4l85e500sTnIv4VRk4jCZ3AXXujO3WTs97kILReXOhFeIsQ6Z31GUon2HTRJaUgCmPRk_PEsx1VRmeCLvKeHWVY_1uMQ_IR4rdRQcvqjpp7cL-5OGcTbLOgQF__eDg1JHZHd7T9qxVRNE_FXzMTSngBPGo0"/>
+</div>
+<span class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile max-w-7xl mx-auto">
+<!-- Header & Search Section -->
+<section class="mb-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Inventory Management</h1>
+<p class="font-body-md text-on-surface-variant">Manage your stock, prices, and product listings.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-[16px] font-label-lg active:scale-95 transition-transform shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+                        New Product
+                    </button>
+</div>
+</div>
+<!-- Search and Filter Chips -->
+<div class="flex flex-col gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-[20px] focus:ring-2 focus:ring-primary transition-all font-body-md placeholder:text-on-surface-variant/60" placeholder="Search by product name or SKU..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-lg whitespace-nowrap flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+                        All Products
+                    </button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">Seeds</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">Fertilizers</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">Pesticides</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap hover:bg-surface-variant transition-colors">Machinery</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        More
+                    </button>
+</div>
+</div>
+</section>
+<!-- Product Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Product Card 1: Low Stock Alert -->
+<div class="glass-card rounded-[24px] overflow-hidden flex flex-col group border-error/20 bg-error-container/5">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-quality macro photograph of white Urea fertilizer granules in a minimalist canvas sack. The lighting is crisp and commercial-grade, highlighting the crystalline texture of the nitrogen-rich pellets. The background is a clean, neutral farm warehouse with soft depth of field. Professional agricultural photography style with natural green and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZdabqTfmRMrqwxi39srw-OlZSqNrxxpHYV8A9F79KJzMSa79A4BbwftMz0BAAJ9MVpodKE-b9qq1vyhW8Cspoxc2xaQSZKQNLApP90KKHy7Keusqq1mYYF4iQP-RV2QhnsqJ59xvQY1vzhVAVktNu-TbgA0LN5Qtu8ESmU0HGlnb2VtLo4PMaGrznefNSZrAKHXsrGQC2-TBOYnOl6yq69iYAyITQxFoRYjVDhG-LF4s0P7owV_Q"/>
+<div class="absolute top-4 left-4 bg-error text-on-error px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+                        Low Stock
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-lg text-on-surface">Urea (46% Nitrogen)</h3>
+<span class="font-title-lg text-primary">₹1,240</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">High-efficiency soil nutrient for all crop types. Premium moisture-resistant packaging.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded-xl">
+<span class="font-label-lg text-on-surface-variant">Stock Level</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-error">45 Bags</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[30%] h-full bg-error"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-secondary-container text-on-secondary-container py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+                                Edit
+                            </button>
+<button class="bg-primary text-on-primary py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+                                Restock
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Healthy Stock -->
+<div class="glass-card rounded-[24px] overflow-hidden flex flex-col group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional product shot of high-yield hybrid corn seeds in a modern, labeled commercial bag. The seeds are golden and vibrant, partially visible through a transparent window. The lighting is studio-quality, emphasizing growth and agricultural success. The setting is clean and high-tech, fitting for a modern agribusiness dealer. Soft shadows and a clean green-tinted background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJYJ75q0P5-crUmgRKMcRjvXJs9gea2OaNZkJyqq62HeZs4jij_2Z2kj66klLcxfaEY1189PJ0aBVR-UQ4nFr1ccVMUum8hTeGL1NStVuft87Fe6CWTYoIlGpmndC2srWk2b5CndkNBcJs9nPtTiNmhztyHXUfZEnB0Gp8oOHcx8iK2dUuPVYM7CcKYOf7uWM6g35N6TW9DCm3JT9lJ99V3d_R7hL2QhPCdbY9Lq68mv286fI8KeM"/>
+<div class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        In Stock
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-lg text-on-surface">Hybrid Corn Seeds</h3>
+<span class="font-title-lg text-primary">₹3,450</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">F1 Hybrid, pest resistant, drought tolerant. Optimal for late monsoon sowing.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded-xl">
+<span class="font-label-lg text-on-surface-variant">Stock Level</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-secondary">210 Units</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-secondary"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-secondary-container text-on-secondary-container py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+                                Edit
+                            </button>
+<button class="bg-primary text-on-primary py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+                                Restock
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3: Out of Stock -->
+<div class="glass-card rounded-[24px] overflow-hidden flex flex-col group opacity-90 border-dashed border-2 border-outline-variant">
+<div class="h-48 relative overflow-hidden bg-surface-container-highest">
+<div class="absolute inset-0 bg-black/40 z-10 flex items-center justify-center backdrop-blur-[2px]">
+<span class="text-white font-headline-lg-mobile uppercase tracking-widest">Sold Out</span>
+</div>
+<img class="w-full h-full object-cover" data-alt="Close-up of a modern electric handheld power sprayer used for precision pesticide application in agriculture. The device is sleek, in a charcoal and leaf-green color scheme. The lighting is dramatic and technical, showcasing the ergonomic design and nozzle precision. Industrial but clean aesthetic, emphasizing technological advancement in farming tools." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwNE-6fCkEjF44XyRrjJau25-u2EelljZSOKZBzvt2lSZus3qtU_OX3oHS-mMjbdwwDJvbEMcAqRyEhcn5XD1pUOtPWbkD70X6o2RlaNq8WC9kAQ5QkHtGRN2y8yhxfksDkeVtz23skpmQg-Bc7NVI_fV0twwtjLOGL7gdfr-_My4vgp8XtWYajZdO3G-yF_ayIMcwUdV5n9gcFsh3fPOLiW0K5fd1mkDHekmSLMIJi_kA6lHnKOg"/>
+</div>
+<div class="p-6 flex-1 flex flex-col grayscale-[0.5]">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-lg text-on-surface">Power Sprayer XT-2</h3>
+<span class="font-title-lg text-on-surface-variant">₹8,900</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">Battery-operated precision sprayer with 15L capacity and dual-speed motor.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded-xl">
+<span class="font-label-lg text-on-surface-variant">Stock Level</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-error">0 Units</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-0 h-full bg-error"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1">
+<button class="bg-primary-container text-on-primary-container py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 hover:bg-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+                                Reorder Now
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Detailed Machinery -->
+<div class="glass-card rounded-[24px] overflow-hidden flex flex-col group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cinematic wide shot of a modern, compact agricultural tractor parked in a well-lit showroom. The tractor is painted in a vibrant nature-green, featuring clean lines and advanced LED lighting. The floor is polished concrete reflecting the vehicle. The lighting is warm and inviting, suggesting a premium dealership experience. Detailed mechanical parts are visible but presented with elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIlAYAYrbXh5Xw1tndyC1a1dRhd1XgEXO2ulXH5MyH_-jBqTSyfYBaJBkSzNExG6TI9DFmPAnn67FufasCT5I31IgmP9QU0KIg4rHqD1FEMkhJXuZ3DLYWeAle5E6KE0wORFUDhvABu86IK3CtawgRxQIcLr1UGo8AnOS_98UjSw_8j9N7oSMs9ldUu2TRDh6YqBRg5X5A4a4SrhPpZoowdTA5T0lEzFVtCYO_QzX9K-W-Fd9N878"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        Premium
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-lg text-on-surface">Mini Tractor M-450</h3>
+<span class="font-title-lg text-primary">₹4.2L</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">45HP diesel engine, 4WD, ideal for small to medium orchards and vineyards.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded-xl">
+<span class="font-label-lg text-on-surface-variant">Stock Level</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">3 Units</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[15%] h-full bg-tertiary"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-secondary-container text-on-secondary-container py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+                                Edit
+                            </button>
+<button class="bg-primary text-on-primary py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+                                Restock
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5: Herbicide Healthy -->
+<div class="glass-card rounded-[24px] overflow-hidden flex flex-col group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, scientific photograph of a professional-grade agricultural herbicide bottle. The packaging is modern and informative, with clear labeling in green and white. The bottle is set against a backdrop of a lush, healthy field with some blurred weeds in the distance, representing the product's purpose. The lighting is clinical and bright, emphasizing safety and effectiveness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFfhoawfHbwcxWUkrrBCJbCt3gMRgIiHfwYBJDYOqMIaXYf1qHqqlvEDRVyqcxY-EIRUbcpjmetz8N8yi-gBANLs5MpPyczKW4FzbvZY1N9haVyHdxlzPFUmV-ieYzj_xSEq3b7iZG-oY43eXhKyeEIKH54MQlaE7cdLwEmEKQd6ROI753QKfqpnnwb1pPCXSj6zJRNXxda3o8-VtJr-Y5RdxJZ45QYBoJXXoz228K0ItmyFV8sQQ"/>
+<div class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        In Stock
+                    </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-lg text-on-surface">Bio-Safe Herbicide</h3>
+<span class="font-title-lg text-primary">₹850</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">Organic-certified weed control. Safe for soil microorganisms and pollinators.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded-xl">
+<span class="font-label-lg text-on-surface-variant">Stock Level</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-secondary">88 Units</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[60%] h-full bg-secondary"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-secondary-container text-on-secondary-container py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+                                Edit
+                            </button>
+<button class="bg-primary text-on-primary py-3 rounded-xl font-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+                                Restock
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats/Summary Card (Asymmetric Layout) -->
+<div class="bg-primary-container text-on-primary-container rounded-[24px] p-8 flex flex-col justify-between relative overflow-hidden">
+
+<div class="relative z-10">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-2">Inventory Health</h2>
+<p class="font-body-md opacity-80 mb-6">Overview of your current stock performance.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-on-primary-container/20 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white">trending_up</span>
+</div>
+<div>
+<p class="font-label-sm uppercase tracking-wider opacity-60">Total Value</p>
+<p class="font-title-lg">₹12.4 Lakhs</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-on-primary-container/20 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white">warning</span>
+</div>
+<div>
+<p class="font-label-sm uppercase tracking-wider opacity-60">Alert Items</p>
+<p class="font-title-lg">4 Products</p>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full bg-white text-primary py-4 rounded-2xl font-label-lg flex items-center justify-center gap-2 shadow-xl shadow-black/10 hover:bg-surface-container transition-colors relative z-10">
+                    View Full Report
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="text-[10px] font-bold">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px] font-medium">AI</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="text-[10px] font-medium">My Farm</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+<!-- Interaction Script -->
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+
+        // Search highlight effect
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('shadow-lg', 'shadow-primary/5');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('shadow-lg', 'shadow-primary/5');
+        });
+    </script>
+</body></html>

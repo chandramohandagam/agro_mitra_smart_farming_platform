@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra | Campaigns &amp; Advertising</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ffefd6",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-secondary-fixed": "#002105",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-surface-variant": "#40493d",
+                    "inverse-surface": "#2d312e",
+                    "surface-bright": "#f7faf5",
+                    "secondary": "#126d27",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdf9e",
+                    "tertiary": "#6d5100",
+                    "on-tertiary-fixed": "#261a00",
+                    "surface-container": "#ecefea",
+                    "primary": "#0d631b",
+                    "background": "#f7faf5",
+                    "surface-container-low": "#f1f4ef",
+                    "secondary-fixed-dim": "#83da85",
+                    "surface-container-highest": "#e0e3df",
+                    "on-primary-container": "#cbffc2",
+                    "on-secondary-fixed-variant": "#005318",
+                    "on-secondary-container": "#19722b",
+                    "outline": "#707a6c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005312",
+                    "primary-container": "#2e7d32",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#181c1a",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#9cf49c",
+                    "primary-fixed": "#a3f69c",
+                    "surface-variant": "#e0e3df",
+                    "on-background": "#181c1a",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e9e4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#1b6d24",
+                    "inverse-primary": "#88d982",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "surface-dim": "#d8dbd6",
+                    "surface": "#f7faf5",
+                    "primary-fixed-dim": "#88d982"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F7FAF5;
+            color: #181C1A;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(224, 224, 224, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border-radius: 24px;
+        }
+        .chart-bar {
+            transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors active:scale-95 duration-100">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A high-quality professional portrait of a modern agricultural manager in a bright office environment. The lighting is soft and natural, emphasizing a clean and trustworthy professional aesthetic. The background is slightly blurred with hints of lush greenery and sustainable technology. The color palette features soft whites and natural forest greens, matching the Agro Mitra brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxrBvytcioUi3GGFd25haITaII1eoMHRLqXylFEWtTyNShJiKOEAIjdaaBTHqS80DS5-DpHhfXgKqw51mma82AXowMR-0MBxDuNfAwjsJvqFs444hHmBJGuax7h6L6tmlxGOXpZ0dGFhbHKMdS2oz4v53tbu--sPSRjk9GTfECYKH8VlshvBXzOb620Ni4gvAE5ueCM6aDNxvAJaNG6XZ7-QFdk0s1KbRSFapyQoEUGbO8RPbbTIc"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Header Section with Action -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Campaigns &amp; Advertising</h1>
+<p class="font-body-lg text-on-surface-variant mt-2">Manage your promotional impact and reach across the farming community.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-label-lg text-label-lg flex items-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+                Create New Campaign
+            </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Performance Graph (Bento Large) -->
+<div class="md:col-span-8 glass-card p-6 flex flex-col h-[400px]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Performance Overview</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Impressions vs. Engagement (Last 30 Days)</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-label-sm font-label-sm">Live</span>
+<span class="px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full text-label-sm font-label-sm">Monthly</span>
+</div>
+</div>
+<div class="flex-grow flex items-end justify-between gap-2 px-2 pb-2">
+<!-- Simple CSS Data Viz -->
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-fixed-dim/40 rounded-t-lg chart-bar" style="height: 40%"></div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">W1</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-fixed-dim/60 rounded-t-lg chart-bar" style="height: 65%"></div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">W2</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary rounded-t-lg chart-bar" style="height: 85%"></div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">W3</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary-container rounded-t-lg chart-bar" style="height: 55%"></div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">W4</span>
+</div>
+</div>
+</div>
+<!-- Segment Analysis (Bento Medium) -->
+<div class="md:col-span-4 glass-card p-6">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-6">Segment Analysis</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-lg text-label-lg">Small-Scale Farmers</span>
+<span class="font-label-lg text-label-lg text-primary">64%</span>
+</div>
+<div class="w-full h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-lg text-label-lg">Large Agribusiness</span>
+<span class="font-label-lg text-label-lg text-tertiary">22%</span>
+</div>
+<div class="w-full h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 22%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-lg text-label-lg">Cooperatives</span>
+<span class="font-label-lg text-label-lg text-secondary">14%</span>
+</div>
+<div class="w-full h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 14%"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-low rounded-2xl border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Small-scale farmers show a <span class="text-primary font-bold">+12% higher engagement</span> rate this month.</p>
+</div>
+</div>
+<!-- Active Campaigns List (Bento Wide) -->
+<div class="md:col-span-12 glass-card overflow-hidden">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Active Campaigns</h3>
+<button class="text-primary font-label-lg text-label-lg hover:underline">View All Archive</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="p-6 font-label-lg text-label-lg text-on-surface-variant">Campaign Name</th>
+<th class="p-6 font-label-lg text-label-lg text-on-surface-variant">Reach</th>
+<th class="p-6 font-label-lg text-label-lg text-on-surface-variant">Conv. Rate</th>
+<th class="p-6 font-label-lg text-label-lg text-on-surface-variant">ROI</th>
+<th class="p-6 font-label-lg text-label-lg text-on-surface-variant">Budget Status</th>
+<th class="p-6 font-label-lg text-label-lg text-on-surface-variant"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Campaign 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Spring Fertilizer Promo</p>
+<p class="text-[12px] text-on-surface-variant">Ends in 12 days</p>
+</div>
+</div>
+</td>
+<td class="p-6 font-body-md text-body-md text-on-surface">42.5K farmers</td>
+<td class="p-6 font-body-md text-body-md text-on-surface">
+<div class="flex items-center gap-2">
+<span>4.8%</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span>
+</div>
+</td>
+<td class="p-6 font-body-md text-body-md text-on-surface">3.2x</td>
+<td class="p-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm">Healthy</span>
+</div>
+</td>
+<td class="p-6 text-right">
+<button class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<!-- Campaign 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Harvest Tech 2024</p>
+<p class="text-[12px] text-on-surface-variant">Active since Jan 15</p>
+</div>
+</div>
+</td>
+<td class="p-6 font-body-md text-body-md text-on-surface">12.2K agribusinesses</td>
+<td class="p-6 font-body-md text-body-md text-on-surface">
+<div class="flex items-center gap-2">
+<span>2.1%</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">trending_flat</span>
+</div>
+</td>
+<td class="p-6 font-body-md text-body-md text-on-surface">1.8x</td>
+<td class="p-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+<span class="font-label-sm text-label-sm">Reviewing</span>
+</div>
+</td>
+<td class="p-6 text-right">
+<button class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<!-- Campaign 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Irrigation Solutions</p>
+<p class="text-[12px] text-on-surface-variant">Scheduled for tomorrow</p>
+</div>
+</div>
+</td>
+<td class="p-6 font-body-md text-body-md text-on-surface-variant">--</td>
+<td class="p-6 font-body-md text-body-md text-on-surface-variant">--</td>
+<td class="p-6 font-body-md text-body-md text-on-surface-variant">--</td>
+<td class="p-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="font-label-sm text-label-sm">Pending</span>
+</div>
+</td>
+<td class="p-6 text-right">
+<button class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Insight Cards -->
+<div class="md:col-span-6 glass-card p-6 flex items-center gap-6">
+<div class="w-20 h-20 rounded-full bg-primary/5 flex-shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro close-up of a vibrant green seedling sprouting through dark, rich, fertile soil. The lighting is early morning sun, creating a warm, golden, and optimistic feeling. The shallow depth of field keeps the focus on the tiny sprout, symbolizing growth and success. The color palette is earthy browns and vibrant forest greens, reflecting the Agro Mitra primary theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOjKG4sCfTCIxyamdkBHHcGh7Pzcdu827qFe5uGQ_PJadwBlwKf4gh1eccZ4Hdo3Y4iXeNd3rkGNt6vsHFNoYu4sAKP3VUQDbTsT8KcqamPTZkyvMXwB2VYlMYyrqkS-gULD-sDXrkFwi3mHB4FT7aeNw-BJ-hzru3WZ2S_Me7P7ezUUBTLzDhDW3TPr4YEc_SXs91g1p35jTJ3O0ay6XUK3hMIH1TK5i6yRreQuU6SDfDw4we_rs"/>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Market Opportunity</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">There's a high demand for organic fertilizers in the western region this season. Consider targeting your Spring campaign there.</p>
+</div>
+</div>
+<div class="md:col-span-6 glass-card p-6 flex items-center gap-6">
+<div class="w-20 h-20 rounded-full bg-tertiary/5 flex-shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An abstract, high-tech representation of agricultural data visualization. Glowing digital connections and floating UI elements hover over a minimalist, dark background. The lighting uses subtle emerald and gold neon accents to represent high-value precision farming. The overall style is clean, futuristic, and premium, aligned with the brand's sophisticated digital identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMJydpcpQIIRiYwMn6Rlbqfr3DXr6FsjZIwrKgLBQC8gD71nVTbPuWAkNworUwBZWxVp4e180MpxoYj2944V6EgjpsV43u6RAqqZyT2W00Cw2xsMk8EHb7XHzCK9tzgviQVtyXXu-qxQx8f2enr8hVnnP2GBp7x6JE4ehuuE16wKrROWCE93lCagbC-LdCvLl28DHY5JLy2235k8aKP6vc3hvdS1T8jyJlkLRcQ6CgK0FnmrZUEPQ"/>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Precision Targeting</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">AI has refined your audience segments. You can now reach 500 more verified farm owners with your current budget.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2 md:max-w-2xl md:mx-auto">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple animation for the bars on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0px';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 300);
+            });
+        });
+
+        // Hover interactions for the campaign list rows
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.classList.add('bg-primary/5');
+            });
+            row.addEventListener('mouseleave', () => {
+                row.classList.remove('bg-primary/5');
+            });
+        });
+    </script>
+</body></html>

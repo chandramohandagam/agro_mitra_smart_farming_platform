@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra - Crop Recommendation</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#0d631b",
+                    "surface-container-high": "#e6e9e4",
+                    "primary-fixed-dim": "#88d982",
+                    "secondary": "#126d27",
+                    "surface-container-highest": "#e0e3df",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-tertiary-container": "#ffefd6",
+                    "surface-container-low": "#f1f4ef",
+                    "on-secondary-container": "#19722b",
+                    "secondary-container": "#9cf49c",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#83da85",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary-fixed": "#261a00",
+                    "tertiary-fixed": "#ffdf9e",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f7faf5",
+                    "surface": "#f7faf5",
+                    "surface-tint": "#1b6d24",
+                    "outline-variant": "#bfcaba",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005318",
+                    "primary-fixed": "#a3f69c",
+                    "primary-container": "#2e7d32",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#ecefea",
+                    "on-surface": "#181c1a",
+                    "on-secondary-fixed": "#002105",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d8dbd6",
+                    "tertiary": "#6d5100",
+                    "outline": "#707a6c",
+                    "surface-variant": "#e0e3df",
+                    "inverse-primary": "#88d982",
+                    "on-background": "#181c1a",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-surface-variant": "#40493d",
+                    "background": "#f7faf5",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#cbffc2",
+                    "inverse-surface": "#2d312e",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px",
+                    "card": "24px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f7faf5;
+            color: #181c1a;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen pb-32">
+<!-- Top App Bar (Shared Component Implementation) -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100" onclick="location.href='{{DATA:SCREEN:SCREEN_11}}'">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<main class="pt-24 px-margin-mobile max-w-4xl mx-auto space-y-lg">
+<!-- Hero Section -->
+<section class="animate-fade-in">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Smart Recommendation</h2>
+<p class="font-body-md text-on-surface-variant">Optimize your yield with AI-driven crop suggestions tailored to your soil and local climate.</p>
+</section>
+<!-- Input Form Selection -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter animate-fade-in" style="animation-delay: 0.1s;">
+<!-- Soil Selection Card -->
+<div class="glass-card rounded-card p-xl space-y-md">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined">analytics</span>
+<h3 class="font-title-lg text-label-lg">Current Soil Profile</h3>
+</div>
+<div class="space-y-sm">
+<label class="block font-label-sm text-on-surface-variant">Soil Texture</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 font-body-md focus:ring-2 focus:ring-primary">
+<option>Loamy (Ideal)</option>
+<option>Sandy</option>
+<option>Clayey</option>
+<option>Silty</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-1">pH Level</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 font-body-md focus:ring-2 focus:ring-primary" step="0.1" type="number" value="6.5"/>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-1">Moisture %</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 font-body-md focus:ring-2 focus:ring-primary" type="number" value="45"/>
+</div>
+</div>
+</div>
+<!-- Location & Weather Info Card -->
+<div class="glass-card rounded-card p-xl space-y-md bg-primary-container/5">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined">location_on</span>
+<h3 class="font-title-lg text-label-lg">Farm Location</h3>
+</div>
+<div class="relative h-24 rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover opacity-80" data-alt="A clean, minimalist satellite map view of lush green agricultural fields and farmlands. The map uses a soft color palette with gentle greens and earthy browns, fitting a professional high-tech agriculture app dashboard. The style is clear, clinical, and high-contrast light mode." data-location="Maharashtra, India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyPTm22t-lb2S6x-tr6CTHMzksD_zfSFOvigOfOl4lJuJi3H_2daweIhW1q1J-b_YHtA_CHEca8w1jnqrQoJ9wEvYSPy66ScKJtiqLSGJBRbhVXWlsxp8Ypo5bht1KdejwMGaya4Oz2yLTYJnsHYqDgbKIAe3n9Y1X-VkhHA3LPYTulsnBTY8gYPAEFmX0oI0hoKEyjI5IVK9gLCwgegx9dkTAIUiRaAh8CT7o0mWN6ckjmv1w0I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<div class="absolute bottom-2 left-3 flex items-center gap-1 text-white text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">my_location</span> Nashik Region
+                    </div>
+</div>
+<div class="flex justify-between items-center bg-white/40 p-3 rounded-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">sunny</span>
+<div>
+<p class="text-[10px] text-on-surface-variant leading-none uppercase tracking-wider font-bold">Weather</p>
+<p class="font-body-md font-semibold">28°C / 62% Humidity</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-container">arrow_forward_ios</span>
+</div>
+</div>
+</section>
+<!-- Recommendation Action -->
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-title-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-transform" onclick="generateRecommendation()">
+<span class="material-symbols-outlined">compost</span>
+            Generate Recommendation
+        </button>
+<!-- Results Section (Initially Hidden) -->
+<section class="space-y-lg animate-fade-in" id="results-section">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-lg-mobile text-title-lg">Recommended Crops</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">3 Best Matches</span>
+</div>
+<!-- Bento Grid of Results -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Primary Recommendation -->
+<div class="md:col-span-2 glass-card rounded-card overflow-hidden flex flex-col md:flex-row border-2 border-primary/20">
+<div class="w-full md:w-2/5 h-48 md:h-full relative">
+<img class="w-full h-full object-cover" data-alt="A high-quality close-up photograph of vibrant, healthy green soybean plants growing in a sunlit field. The lighting is natural and bright, highlighting the dew on the leaves. The image style is crisp and professional, with a shallow depth of field, fitting for a modern high-end agricultural technology platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf7uhJgfYTVRohvRuy42qrelUtmG7u3J2YjE1O9j8oAajenXiIUwdfrrjRwcyaRJP_lcMqr-F3oN2HXWc0vgDKnhEPM6r1PEDWw50qxSAN1qOzJEq6wQNbWOaEUCCp4Kg7-NSTKeJ2oGufuzUrChhgzZ5_Gt3A6RbAnD6o4ErfzXCvUFutTPZJ4NZQZu6MxLqSfPtbByghoDHcZ7hRMfegFOsWwoDE9WTbZEAS7ibskYqX_epGjBE"/>
+<div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full font-label-sm">98% Match</div>
+</div>
+<div class="p-xl flex-1 space-y-md">
+<div>
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Soybean</h4>
+<p class="font-body-md text-on-surface-variant">Optimal for current Loamy soil &amp; monsoon conditions.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-3 rounded-xl">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Exp. Yield</p>
+<p class="font-title-lg text-primary">2.8 T/ac</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Profit Est.</p>
+<p class="font-title-lg text-tertiary">₹45k/ac</p>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant/30">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-on-surface-variant">Risk Analysis</span>
+<span class="font-label-sm text-primary font-bold">Low</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[15%] h-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Recommendation -->
+<div class="glass-card rounded-card p-xl flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl">psychology</span>
+</div>
+<h4 class="font-title-lg text-primary">Cotton</h4>
+<p class="font-body-md text-on-surface-variant mt-2">Secondary choice with moderate water requirements.</p>
+</div>
+<div class="mt-8 space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-on-surface-variant">Success Probability</span>
+<span class="font-title-lg text-on-surface">84%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full">
+<div class="w-[84%] h-full bg-secondary rounded-full"></div>
+</div>
+<button class="w-full py-2 border border-primary/20 text-primary rounded-xl font-label-lg hover:bg-primary/5 transition-colors">Details</button>
+</div>
+</div>
+</div>
+<!-- Summaries Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Soil Summary -->
+<div class="bg-surface-container-low rounded-card p-xl border border-outline-variant/20">
+<h5 class="font-label-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">science</span> Soil Health Summary
+                    </h5>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-body-md">Nitrogen levels are optimal for legumes.</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-body-md">Slight phosphorus deficiency detected.</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-body-md">Drainage capacity is excellent.</span>
+</li>
+</ul>
+</div>
+<!-- Weather Summary -->
+<div class="bg-surface-container-low rounded-card p-xl border border-outline-variant/20">
+<h5 class="font-label-lg text-secondary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">cloud</span> 15-Day Climate Outlook
+                    </h5>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar">
+<div class="flex-shrink-0 text-center space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant">MON</p>
+<span class="material-symbols-outlined text-primary">rainy</span>
+<p class="font-label-sm">24°</p>
+</div>
+<div class="flex-shrink-0 text-center space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant">TUE</p>
+<span class="material-symbols-outlined text-primary">rainy</span>
+<p class="font-label-sm">23°</p>
+</div>
+<div class="flex-shrink-0 text-center space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant">WED</p>
+<span class="material-symbols-outlined text-tertiary">partly_cloudy_day</span>
+<p class="font-label-sm">26°</p>
+</div>
+<div class="flex-shrink-0 text-center space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant">THU</p>
+<span class="material-symbols-outlined text-tertiary">sunny</span>
+<p class="font-label-sm">29°</p>
+</div>
+<div class="flex-shrink-0 text-center space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant">FRI</p>
+<span class="material-symbols-outlined text-tertiary">sunny</span>
+<p class="font-label-sm">31°</p>
+</div>
+</div>
+<p class="font-body-md mt-4 text-on-surface-variant italic">"Early monsoon onset predicted. Recommend planting by June 12th."</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Implementation) -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center w-auto px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full px-4 py-1 transition-transform duration-200 active:scale-90" href="{{DATA:SCREEN:SCREEN_11}}">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full px-4 py-1 transition-transform duration-200 active:scale-90" href="{{DATA:SCREEN:SCREEN_8}}">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform duration-200 active:scale-90" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full px-4 py-1 transition-transform duration-200 active:scale-90" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full px-4 py-1 transition-transform duration-200 active:scale-90" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        function generateRecommendation() {
+            const results = document.getElementById('results-section');
+            
+            // Simulating loading state
+            const btn = event.currentTarget;
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Analyzing Data...`;
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                // Refresh to screen 144
+                location.href = '{{DATA:SCREEN:SCREEN_144}}';
+            }, 1200);
+        }
+
+        // Initialize state
+        document.addEventListener('DOMContentLoaded', () => {
+            // Pre-reveal logic if needed
+        });
+    </script>
+</body></html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra - Disease Detection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#83da85",
+                    "surface-container": "#ecefea",
+                    "on-surface": "#181c1a",
+                    "on-surface-variant": "#40493d",
+                    "on-background": "#181c1a",
+                    "surface-container-high": "#e6e9e4",
+                    "surface-container-highest": "#e0e3df",
+                    "tertiary-fixed": "#ffdf9e",
+                    "surface": "#f7faf5",
+                    "on-secondary-fixed": "#002105",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "surface-container-low": "#f1f4ef",
+                    "outline-variant": "#bfcaba",
+                    "on-tertiary-fixed": "#261a00",
+                    "on-secondary-fixed-variant": "#005318",
+                    "on-primary-fixed": "#002204",
+                    "tertiary": "#6d5100",
+                    "primary": "#0d631b",
+                    "secondary": "#126d27",
+                    "inverse-on-surface": "#eff2ed",
+                    "inverse-primary": "#88d982",
+                    "outline": "#707a6c",
+                    "secondary-container": "#9cf49c",
+                    "tertiary-container": "#8c6800",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#cbffc2",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dbd6",
+                    "primary-container": "#2e7d32",
+                    "surface-bright": "#f7faf5",
+                    "inverse-surface": "#2d312e",
+                    "background": "#f7faf5",
+                    "surface-variant": "#e0e3df",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#88d982",
+                    "on-tertiary-container": "#ffefd6",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#1b6d24",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#a3f69c",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#005312",
+                    "secondary-fixed": "#9ff79f",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-secondary-container": "#19722b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "xs": "4px",
+                    "margin-desktop": "64px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "xl": "32px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .scanning-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #88d982, transparent);
+            box-shadow: 0 0 15px #88d982;
+            animation: scan 2.5s infinite ease-in-out;
+            position: absolute;
+            width: 100%;
+            z-index: 20;
+        }
+
+        @keyframes scan {
+            0% { top: 10%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+
+        .pulse-detection {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfcaba;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md text-body-md overflow-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-title-lg text-primary dark:text-primary-fixed tracking-tight">AI Health Check</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">history</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant/50 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a modern agronomist with a friendly expression, wearing a neutral-toned linen shirt against a soft-focus background of a sunlit greenhouse. The lighting is bright and clean, embodying a high-end light-mode aesthetic with organic green tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2BNBP8OG4j3N6-cOIeG94DM0Fwd-PsM2lS9-kFWLzEy9nb2kIL28xtFpxruE3eZlc6L7bO98Q2g3Depo-q_dfQ1qwDKcjmQVj3oX7uuVGy81Ivlk7LEJFVTD_rxAQ-ExegWtXCZaGuvf-pAA45aQv8XIsf_w3bvfIDfl3KYAhe_H9ChgPcqwU-pfdsd0DZtac-ghobXo1lXtk7gRc03YQBSREiCuE5YotyNwGmTgAGhojrUjnV_U"/>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-32 h-screen overflow-y-auto custom-scrollbar px-margin-mobile md:px-margin-desktop">
+<!-- Camera Viewfinder Section -->
+<section class="mt-6 max-w-4xl mx-auto">
+<div class="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-[32px] overflow-hidden border-4 border-white shadow-xl bg-black group">
+<!-- Camera Feed Placeholder -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-resolution, close-up macro photograph of a wheat leaf infected with yellow rust disease. Bright yellow-orange fungal pustules are arranged in distinct linear stripes along the green leaf blade. The lighting is crisp and natural, capturing every fine texture and spore detail in a professional agricultural photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4Bs_TWdGeJsci22rGchFQN68wxI0S59hQdtxS8xbbWLLYsS0NdXmlmOt2S9ItDvVOoH2wIBCAf0xWGabZkvS1OM8LtpxQathITRYGBLwy65pR1M32e5iv-vWtNmSIl5afFxsvr3aBOK09KvgFhuoyF-pkZ8V55AR006M-PlFeI7_hLjmkueUryJDlFjfpdrO1tGCeAy2ggHr6wKmRlBVoXUcOzH0QmQaj-9WVD5x5dGFDF4Bp-zE')">
+</div>
+<!-- Overlay UI -->
+<div class="absolute inset-0 bg-black/10 flex flex-col justify-between p-6">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<span class="text-white font-label-sm text-label-sm uppercase tracking-wider">Live AI Analysis</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white">
+<span class="material-symbols-outlined">flash_on</span>
+</button>
+</div>
+<!-- Scan Animation Area -->
+<div class="relative flex-1 flex items-center justify-center">
+<div class="scanning-line"></div>
+<!-- Detection Box -->
+<div class="border-2 border-primary-fixed-dim/80 w-48 h-48 rounded-2xl relative pulse-detection">
+<div class="absolute -top-1 -left-1 w-6 h-6 border-t-4 border-l-4 border-primary rounded-tl-lg"></div>
+<div class="absolute -top-1 -right-1 w-6 h-6 border-t-4 border-r-4 border-primary rounded-tr-lg"></div>
+<div class="absolute -bottom-1 -left-1 w-6 h-6 border-b-4 border-l-4 border-primary rounded-bl-lg"></div>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 border-b-4 border-r-4 border-primary rounded-br-lg"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<button class="flex flex-col items-center gap-1 active:scale-90 transition-transform">
+<div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">image</span>
+</div>
+<span class="text-white text-[10px] font-bold tracking-widest uppercase">Gallery</span>
+</button>
+<button class="w-20 h-20 rounded-full border-4 border-white flex items-center justify-center bg-white/10 active:scale-95 transition-transform">
+<div class="w-14 h-14 rounded-full bg-white"></div>
+</button>
+<button class="flex flex-col items-center gap-1 active:scale-90 transition-transform">
+<div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">info</span>
+</div>
+<span class="text-white text-[10px] font-bold tracking-widest uppercase">Tips</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Detection Results Bento Grid -->
+<section class="mt-8 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Result Main Card -->
+<div class="md:col-span-2 bg-white rounded-[24px] border border-outline-variant/30 shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 bg-gradient-to-br from-error-container/20 to-transparent">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-error/10 text-error px-3 py-1 rounded-full font-label-lg text-label-lg mb-2 inline-block">High Severity Detected</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Yellow Rust <span class="text-on-surface-variant font-normal">(Puccinia striiformis)</span></h2>
+</div>
+<div class="flex flex-col items-end">
+<div class="text-3xl font-bold text-primary">94%</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">AI Confidence</div>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<!-- Progress Bar Confidence -->
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 94%"></div>
+</div>
+<!-- Treatment Steps -->
+<div>
+<h3 class="font-title-lg text-title-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+                            Immediate Treatment Steps
+                        </h3>
+<div class="space-y-3">
+<div class="flex gap-4 p-3 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">1</div>
+<p class="text-on-surface-variant">Isolate the infected area by establishing a 5-meter buffer zone around detected spots to prevent spore dispersion.</p>
+</div>
+<div class="flex gap-4 p-3 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">2</div>
+<p class="text-on-surface-variant">Apply recommended systemic fungicides within 48 hours for maximum containment effectiveness.</p>
+</div>
+<div class="flex gap-4 p-3 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">3</div>
+<p class="text-on-surface-variant">Reduce nitrogen application temporarily as high nitrogen levels can accelerate rust proliferation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Marketplace & Weather Context -->
+<div class="flex flex-col gap-6">
+<!-- Weather Insights Card -->
+<div class="bg-primary-container p-6 rounded-[24px] text-on-primary-container shadow-lg relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-20">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">cloudy_filled</span>
+</div>
+<h3 class="font-label-lg text-label-lg uppercase tracking-wider mb-4">Risk Context</h3>
+<div class="flex items-center gap-2 text-3xl font-bold mb-1">
+                        78% <span class="material-symbols-outlined">humidity_high</span>
+</div>
+<p class="text-label-sm font-label-sm opacity-90 leading-relaxed">High humidity forecast for the next 48h will likely accelerate fungal growth.</p>
+</div>
+<!-- Marketplace Integration -->
+<div class="bg-white rounded-[24px] border border-outline-variant/30 p-6 shadow-sm flex flex-col flex-1">
+<h3 class="font-title-lg text-title-lg mb-4 flex items-center justify-between">
+                        Recommended
+                        <span class="material-symbols-outlined text-primary">storefront</span>
+</h3>
+<div class="space-y-4">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="flex gap-3 items-center p-2 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="w-14 h-14 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, studio-lit commercial product shot of a high-end agricultural fungicide bottle. Minimalist white packaging with professional green and blue typography. The bottle is placed on a reflective white surface with a soft grey background, clinical and trustworthy aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYOl03ZWLgh91QT4cMZ6q5J9t3Me2RRSLAtD6soRDPJzNbvu1gj-OaioqbRtrvXLwGoGV1QX6LOSR_pagTR6_ebyH3S5Hte72IbNxmLr5tTjrrfxvDzSTKpRXqW1TidDQ5mLeknNYtH83ivI4MTwvGneku1v57Np30N71P_yKjdSrSphFyObucPcAb5M5HSwfLczEFhlbSmx6Lf3hswmVPjFdW7RmjsqTaDa5jOq-D8K0VtaARwag"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<div class="font-label-lg text-label-lg truncate">AgroShield-Pro 500</div>
+<div class="text-primary font-bold">₹1,249.00</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="flex gap-3 items-center p-2 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="w-14 h-14 rounded-lg bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional product photograph of a granular crop protection fungicide in a premium, eco-friendly resealable bag. The packaging features clear icons for 'Wheat' and 'Rust Protection'. Photographed in high-key lighting for a modern agritech marketplace aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe4Fe5kRBqxpUb81zxQLBA1e60UM7YCesExUHxqXrx4R5hldchNLv7BB-HM2dz71j1Nsx-kwxfvLcFR59CpqmN2q2IH4OzcPmHp1s8lcSEyx0jpEKfctlkfZfan3r5E69i6vU6EjMR-dT33qdQqSbiI_Dfaa2owRXW-fL1-DGZ0H7JxNIq-PviUSH7Abtx0f2Tak6s3G_bzuloho9dSClv7OVxI2LtYik9Xi3VRuZkhkoW7XkeRXs"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<div class="font-label-lg text-label-lg truncate">BioGuard Rust-Kill</div>
+<div class="text-primary font-bold">₹899.00</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-all">
+                        Buy All Essentials
+                        <span class="material-symbols-outlined text-sm">shopping_cart</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Nearby Experts / Community -->
+<section class="max-w-4xl mx-auto mb-12">
+<div class="bg-surface-container-low p-6 rounded-[24px] border border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-4">
+<div class="w-12 h-12 rounded-full border-2 border-white overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover" data-alt="Close-up headshot of a female agricultural expert, wearing a field vest and glasses, smiling confidently. Natural sunlight lighting, background is a blurred farm scene. 8k resolution, professional LinkedIn style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj_9yQyLEMuWCiJ6VlUJpF61FxgHoeuDvH4B8nY0ew2dnjZiqJNK8ORkKdDAPrtKs5FqgwExlm0zo2DCc3adaIsEa0zevPd_8o8e1yaHI9CvgY642O0TtmO87YiavPJKfV-IElcn7E3mvhV5fHC1upj-8tr4UmnXlQMLjEImQ4XTMdlvWEk5tbj3te6KO__bhMpu5rNp_va-o45mwEZ1zR33dsKzgKjzaa_JzNIkv_cc7el4wcxwM"/>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-white overflow-hidden bg-secondary-container">
+<img class="w-full h-full object-cover" data-alt="Portrait of a senior male agronomist with a weathered face and friendly eyes, wearing a traditional straw hat. Soft afternoon sunlight, organic farm setting background. Cinematic agricultural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQoPkuUxN6kbz8gA1m7El0VSHlVBx8W3-Fzp2vPnXTfSWtkbYbN-HKw7mYkDvdLwH28rSFkc2c9vbgFEmyZd8W96FJR1iOVgLPYt3lC785bVVwojb9AKmMCww4dccGz-d5dsyXycvaeEOdBfCyXo6MZ9i0oyZBCwkPFdVCFQto6AFcNMv3zOXMTplxzORoMBSpmfTcGuIxauNROlz17CinepkTwRhGbWKecWUCINkcNT33Hqi7Mcw"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-white bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">+12</div>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg">Talk to an Expert</h4>
+<p class="text-on-surface-variant">14 Agronomists active in your district</p>
+</div>
+</div>
+<button class="px-8 py-3 border-2 border-primary text-primary rounded-full font-bold hover:bg-primary/5 active:scale-95 transition-all">
+                    Consult Now
+                </button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 dark:bg-surface-container/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 h-12 shadow-sm transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm">AI Health</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple interactive demo logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate confidence bar on load
+            const progressBars = document.querySelectorAll('.bg-primary.rounded-full');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+
+            // Simulate AI "analysis" on camera click
+            const captureBtn = document.querySelector('button.w-20.h-20');
+            captureBtn.addEventListener('click', () => {
+                captureBtn.classList.add('bg-primary/20');
+                setTimeout(() => {
+                    captureBtn.classList.remove('bg-primary/20');
+                    alert('Capturing sample for analysis...');
+                }, 200);
+            });
+        });
+    </script>
+</body></html>

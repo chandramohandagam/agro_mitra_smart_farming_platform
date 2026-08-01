@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra | Dealer Network Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ffefd6",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-secondary-fixed": "#002105",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-surface-variant": "#40493d",
+                    "inverse-surface": "#2d312e",
+                    "surface-bright": "#f7faf5",
+                    "secondary": "#126d27",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdf9e",
+                    "tertiary": "#6d5100",
+                    "on-tertiary-fixed": "#261a00",
+                    "surface-container": "#ecefea",
+                    "primary": "#0d631b",
+                    "background": "#f7faf5",
+                    "surface-container-low": "#f1f4ef",
+                    "secondary-fixed-dim": "#83da85",
+                    "surface-container-highest": "#e0e3df",
+                    "on-primary-container": "#cbffc2",
+                    "on-secondary-fixed-variant": "#005318",
+                    "on-secondary-container": "#19722b",
+                    "outline": "#707a6c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005312",
+                    "primary-container": "#2e7d32",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#181c1a",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#9cf49c",
+                    "primary-fixed": "#a3f69c",
+                    "surface-variant": "#e0e3df",
+                    "on-background": "#181c1a",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e9e4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#1b6d24",
+                    "inverse-primary": "#88d982",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "surface-dim": "#d8dbd6",
+                    "surface": "#f7faf5",
+                    "primary-fixed-dim": "#88d982"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(224, 224, 224, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        body {
+            background-color: #f7faf5;
+            color: #181c1a;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfcaba;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">agriculture</span>
+</div>
+<h1 class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6 mr-6">
+<button class="font-label-lg text-label-lg text-primary border-b-2 border-primary py-4">Dealers</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors py-4">Analytics</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors py-4">Inventory</button>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate agricultural executive in a bright, modern office environment. The person is smiling confidently, wearing a professional green-toned blazer that matches the Agro Mitra brand identity. High-key natural lighting and a soft-focus background of a clean, minimalist workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsLsCQHPxrXqJdabDXMhkdQLgO1fhggj3YSExbIzFA3EQkTOwbC6FQjwuSDnTUlIMhsZwugQl_GHacLX1150FWpI4vD9GbUBKHstYwhuwwl8dLWvlfpHNej38woX_71nhbLj-N8MATlXmF3IgFWYTxr-d2oWf1Zpg-PD1q8kS8T5xJ6pIMhg4aMM5D6CQg25RQsdfzaACFzYDn9WjMpa78Z1tmyfXWf72jCm4E5qj-7fQ-CRwtFXk"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Dashboard Header & Summary Section -->
+<section class="mb-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-lg">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Dealer Network Management</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Monitor and manage your national distribution performance.</p>
+</div>
+<!-- Network Health Summary Card -->
+<div class="glass-card rounded-[24px] p-md flex items-center gap-lg min-w-[280px]">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary transition-all duration-1000" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="176" stroke-dashoffset="8.8" stroke-width="6"></circle>
+</svg>
+<span class="absolute font-label-lg text-label-lg font-bold text-primary">95%</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Network Health</p>
+<p class="font-title-lg text-title-lg text-on-surface">Active Nodes</p>
+<p class="font-body-md text-body-md text-secondary font-medium">84 of 88 Dealers</p>
+</div>
+</div>
+</div>
+<!-- Controls: Search & Filters -->
+<div class="flex flex-col md:flex-row gap-md items-center mb-lg">
+<div class="relative flex-1 w-full group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-[16px] focus:ring-2 focus:ring-primary/20 transition-all font-body-md text-body-md text-on-surface" placeholder="Search dealers by name, ID or city..." type="text"/>
+</div>
+<div class="flex gap-sm w-full md:w-auto">
+<button class="flex items-center gap-2 px-4 py-3 bg-white border border-outline-variant/30 rounded-[16px] hover:bg-surface-container-high transition-colors font-label-lg text-label-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">public</span>
+                        Region
+                        <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-3 bg-white border border-outline-variant/30 rounded-[16px] hover:bg-surface-container-high transition-colors font-label-lg text-label-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+                        Performance
+                        <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Dealer Grid/List Section -->
+<div class="bento-grid">
+<!-- Summary Statistic Cards -->
+<div class="col-span-12 md:col-span-4 glass-card rounded-[24px] p-lg flex flex-col justify-between hover:shadow-lg transition-shadow">
+<div>
+<div class="w-12 h-12 bg-secondary-container rounded-xl flex items-center justify-center text-on-secondary-container mb-md">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Total Contribution</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Gross sales this quarter</p>
+</div>
+<div class="mt-xl">
+<p class="font-display-lg text-headline-lg text-primary">$4.2M</p>
+<p class="font-label-lg text-label-lg text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">north</span>
+                        12.4% vs last year
+                    </p>
+</div>
+</div>
+<!-- Performance Heatmap Placeholder -->
+<div class="col-span-12 md:col-span-8 glass-card rounded-[24px] p-lg overflow-hidden relative">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h3 class="font-title-lg text-title-lg">Regional Penetration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Active dealer density across territories</p>
+</div>
+<button class="p-2 hover:bg-surface-container-high rounded-full"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<div class="h-48 w-full bg-surface-container-low rounded-xl relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-60" data-alt="A stylized abstract data visualization map showing agricultural regions with glowing nodes representing dealers. The map uses a soft palette of nature greens and earthy neutrals. Vibrant light-green pulses emanate from high-performing clusters, illustrating a high-tech precision farming network aesthetic with a clean, light-mode interface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXhNDyqMCdkyKcCHnBACe1vyEPGJpoYllBZnJO_-SLlQvm4DQCcjKTEG8LEdlUEfbtKJBp2wEB4dxhTwm_Idl5TjXGcWdG-T6D_gcKqG-tLoaWzM19pUK0pF2htaT0xOtNcMvsZNG9lIQpXzvV90Svt-61IKLp6WmZbXTYLbAYt-CeTqNvWzX_VdkNi0n45ldWyaWeOQ-oAsqsO1jHYSVVaXrXiVJcYZokdICSAz5L_eU5GxOP6BY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent"></div>
+<!-- Mock Data Nodes -->
+<div class="absolute top-1/4 left-1/3 w-3 h-3 bg-primary rounded-full animate-ping"></div>
+<div class="absolute top-1/2 left-2/3 w-3 h-3 bg-primary rounded-full animate-ping" style="animation-delay: 1s"></div>
+</div>
+</div>
+<!-- Main Dealer List Card -->
+<div class="col-span-12 glass-card rounded-[24px] overflow-hidden">
+<div class="px-lg py-md border-b border-outline-variant/20 flex justify-between items-center bg-white/40">
+<h3 class="font-title-lg text-title-lg">Dealer Directory</h3>
+<div class="flex gap-xs">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant"><span class="material-symbols-outlined">filter_list</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant"><span class="material-symbols-outlined">download</span></button>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Dealer Profile</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Location</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider text-center">Status</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider text-right">Contribution</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Dealer Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">VS</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Valley Seeds &amp; Spares</p>
+<p class="font-body-md text-body-md text-on-surface-variant">ID: AM-2024-001</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4">
+<p class="font-body-md text-body-md text-on-surface">Sacramento, CA</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pacific Region</p>
+</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-medium uppercase tracking-tight">Active</span>
+</td>
+<td class="px-lg py-4 text-right">
+<p class="font-label-lg text-label-lg text-on-surface font-bold">$1,240,000</p>
+<div class="w-24 ml-auto h-1.5 bg-surface-container-highest rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary-container/10 rounded-full text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Dealer Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold">GA</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Green Acres Logistics</p>
+<p class="font-body-md text-body-md text-on-surface-variant">ID: AM-2024-002</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4">
+<p class="font-body-md text-body-md text-on-surface">Lincoln, NE</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Midwest Region</p>
+</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-medium uppercase tracking-tight">Active</span>
+</td>
+<td class="px-lg py-4 text-right">
+<p class="font-label-lg text-label-lg text-on-surface font-bold">$980,000</p>
+<div class="w-24 ml-auto h-1.5 bg-surface-container-highest rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 62%"></div>
+</div>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary-container/10 rounded-full text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Dealer Row 3 (Inactive) -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-outline font-bold">HF</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Harvest Frontier Co.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">ID: AM-2024-005</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4">
+<p class="font-body-md text-body-md text-on-surface">Austin, TX</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Southern Region</p>
+</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full text-label-sm font-medium uppercase tracking-tight">Inactive</span>
+</td>
+<td class="px-lg py-4 text-right">
+<p class="font-label-lg text-label-lg text-outline font-bold">$0</p>
+<div class="w-24 ml-auto h-1.5 bg-surface-container-highest rounded-full overflow-hidden mt-1">
+<div class="bg-outline-variant h-full rounded-full" style="width: 0%"></div>
+</div>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary-container/10 rounded-full text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Dealer Row 4 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">PP</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Prairie Partners</p>
+<p class="font-body-md text-body-md text-on-surface-variant">ID: AM-2024-009</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4">
+<p class="font-body-md text-body-md text-on-surface">Wichita, KS</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Midwest Region</p>
+</td>
+<td class="px-lg py-4 text-center">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-medium uppercase tracking-tight">Active</span>
+</td>
+<td class="px-lg py-4 text-right">
+<p class="font-label-lg text-label-lg text-on-surface font-bold">$845,000</p>
+<div class="w-24 ml-auto h-1.5 bg-surface-container-highest rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 55%"></div>
+</div>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary-container/10 rounded-full text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-lg py-4 border-t border-outline-variant/10 flex justify-between items-center bg-surface-container-lowest/50">
+<p class="font-body-md text-body-md text-on-surface-variant">Showing 1-4 of 88 dealers</p>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant/30 rounded-lg text-on-surface-variant disabled:opacity-30" disabled=""><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 border border-outline-variant/30 rounded-lg text-on-surface-variant"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB: Add New Dealer -->
+<button class="fixed bottom-28 md:bottom-12 right-6 md:right-12 w-14 h-14 md:w-16 md:h-16 bg-primary-container text-on-primary-container rounded-[20px] shadow-xl flex items-center justify-center group active:scale-95 transition-all z-[60] hover:shadow-primary/20">
+<span class="material-symbols-outlined text-[28px] group-hover:rotate-90 transition-transform">add</span>
+<span class="absolute right-full mr-4 bg-on-surface text-white px-3 py-1 rounded-lg text-label-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Add New Dealer</span>
+</button>
+<!-- Bottom Nav Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-8 left-4 right-4 h-16 rounded-full bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2 z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">potted_plant</span>
+<span class="font-label-sm text-[10px]">Dealers</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-[10px]">AI</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-[10px]">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for table rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('click', () => {
+                // Add ripple or selection effect logic
+                console.log('Row clicked');
+            });
+        });
+
+        // Search bar interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            // Mock filter logic
+            const query = e.target.value.toLowerCase();
+            console.log('Searching for:', query);
+        });
+    </script>
+</body></html>

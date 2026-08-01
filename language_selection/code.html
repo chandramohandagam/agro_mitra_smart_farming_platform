@@ -1,0 +1,313 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Agro Mitra - Language Selection</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-highest": "#e0e3df",
+                "inverse-on-surface": "#eff2ed",
+                "tertiary-fixed-dim": "#fabd00",
+                "outline-variant": "#bfcaba",
+                "background": "#f7faf5",
+                "surface-dim": "#d8dbd6",
+                "secondary": "#126d27",
+                "tertiary-container": "#8c6800",
+                "on-tertiary-fixed": "#261a00",
+                "on-error": "#ffffff",
+                "surface": "#f7faf5",
+                "on-primary-fixed-variant": "#005312",
+                "tertiary": "#6d5100",
+                "primary-fixed-dim": "#88d982",
+                "surface-tint": "#1b6d24",
+                "surface-container-high": "#e6e9e4",
+                "on-primary-container": "#cbffc2",
+                "outline": "#707a6c",
+                "inverse-surface": "#2d312e",
+                "surface-container-low": "#f1f4ef",
+                "inverse-primary": "#88d982",
+                "error": "#ba1a1a",
+                "on-primary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "secondary-container": "#9cf49c",
+                "on-primary-fixed": "#002204",
+                "on-secondary-fixed": "#002105",
+                "tertiary-fixed": "#ffdf9e",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-container": "#ffefd6",
+                "secondary-fixed": "#9ff79f",
+                "on-error-container": "#93000a",
+                "primary-container": "#2e7d32",
+                "on-background": "#181c1a",
+                "surface-container": "#ecefea",
+                "on-secondary-fixed-variant": "#005318",
+                "surface-variant": "#e0e3df",
+                "primary-fixed": "#a3f69c",
+                "on-secondary-container": "#19722b",
+                "on-tertiary-fixed-variant": "#5b4300",
+                "surface-bright": "#f7faf5",
+                "on-surface-variant": "#40493d",
+                "primary": "#0d631b",
+                "on-surface": "#181c1a",
+                "error-container": "#ffdad6",
+                "secondary-fixed-dim": "#83da85",
+                "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "base": "8px",
+                "margin-mobile": "16px",
+                "xs": "4px",
+                "xl": "32px",
+                "sm": "12px",
+                "gutter": "16px",
+                "margin-desktop": "64px",
+                "md": "16px",
+                "lg": "24px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "title-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(224, 227, 223, 0.5);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfcaba;
+            border-radius: 10px;
+        }
+        .language-option {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .language-option.active {
+            background-color: #2e7d32;
+            color: #cbffc2;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Placeholder (Supressed for Transactional Flow, but using style tokens for consistency) -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 h-16 flex items-center px-margin-mobile">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-title-lg text-title-lg text-primary tracking-tight">Language</h1>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 px-margin-mobile pb-32 overflow-y-auto custom-scrollbar relative">
+<!-- Background Atmospheric Element -->
+<div class="absolute top-0 right-0 -z-10 w-64 h-64 opacity-20 blur-[100px] bg-primary rounded-full"></div>
+<div class="absolute bottom-0 left-0 -z-10 w-96 h-96 opacity-10 blur-[120px] bg-secondary rounded-full"></div>
+<!-- Header Hero -->
+<section class="mt-8 mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Choose your language</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select the language you are most comfortable with to continue using Agro Mitra.</p>
+</section>
+<!-- Search Bar -->
+<div class="relative mb-8 group focus-within:shadow-md">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 rounded-t-xl transition-all outline-none font-body-lg" placeholder="Search languages..." type="text">
+</div>
+<!-- Language Bento/List Grid -->
+<div class="grid grid-cols-1 gap-4" id="language-list">
+<!-- English -->
+<div class="language-option glass-card rounded-[24px] p-5 flex items-center justify-between cursor-pointer active:scale-[0.98] hover:border-primary/50" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary font-headline-lg-mobile">A</div>
+<div>
+<p class="font-title-lg text-title-lg">English</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-80">Default Language</p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center">
+<div class="inner-dot w-3 h-3 bg-white rounded-full scale-0 transition-transform duration-200"></div>
+</div>
+</div>
+<!-- Hindi -->
+<div class="language-option glass-card rounded-[24px] p-5 flex items-center justify-between cursor-pointer active:scale-[0.98] hover:border-primary/50" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center font-bold text-secondary font-headline-lg-mobile">हिं</div>
+<div>
+<p class="font-title-lg text-title-lg">हिन्दी</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hindi</p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center">
+<div class="inner-dot w-3 h-3 bg-white rounded-full scale-0 transition-transform duration-200"></div>
+</div>
+</div>
+<!-- Punjabi -->
+<div class="language-option glass-card rounded-[24px] p-5 flex items-center justify-between cursor-pointer active:scale-[0.98] hover:border-primary/50" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed/30 flex items-center justify-center font-bold text-on-tertiary-fixed-variant font-headline-lg-mobile">ਪੰ</div>
+<div>
+<p class="font-title-lg text-title-lg">ਪੰਜਾਬੀ</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Punjabi</p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center">
+<div class="inner-dot w-3 h-3 bg-white rounded-full scale-0 transition-transform duration-200"></div>
+</div>
+</div>
+<!-- Marathi -->
+<div class="language-option glass-card rounded-[24px] p-5 flex items-center justify-between cursor-pointer active:scale-[0.98] hover:border-primary/50" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed/30 flex items-center justify-center font-bold text-on-primary-fixed-variant font-headline-lg-mobile">म</div>
+<div>
+<p class="font-title-lg text-title-lg">मराठी</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Marathi</p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center">
+<div class="inner-dot w-3 h-3 bg-white rounded-full scale-0 transition-transform duration-200"></div>
+</div>
+</div>
+<!-- Telugu -->
+<div class="language-option glass-card rounded-[24px] p-5 flex items-center justify-between cursor-pointer active:scale-[0.98] hover:border-primary/50" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed/30 flex items-center justify-center font-bold text-on-secondary-fixed-variant font-headline-lg-mobile">తె</div>
+<div>
+<p class="font-title-lg text-title-lg">తెలుగు</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Telugu</p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center">
+<div class="inner-dot w-3 h-3 bg-white rounded-full scale-0 transition-transform duration-200"></div>
+</div>
+</div>
+<!-- Tamil -->
+<div class="language-option glass-card rounded-[24px] p-5 flex items-center justify-between cursor-pointer active:scale-[0.98] hover:border-primary/50" onclick="selectLanguage(this)">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary font-headline-lg-mobile">த</div>
+<div>
+<p class="font-title-lg text-title-lg">தமிழ்</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tamil</p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center">
+<div class="inner-dot w-3 h-3 bg-white rounded-full scale-0 transition-transform duration-200"></div>
+</div>
+</div>
+</div>
+<!-- Illustration Overlay (Subtle) -->
+<div class="mt-12 flex justify-center opacity-40">
+<img class="w-3/4 max-w-xs object-contain grayscale-0" data-alt="A minimalist and soft digital illustration of a lush, stylized farm landscape at sunrise, using a palette of nature greens and soft creams. The style is professional and clean, consistent with modern app onboarding illustrations, featuring geometric crop rows and a distant sun. High trust, high tech, agricultural growth concept." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAaJYaHKz2ING5OtwnTcVNjl7ljtOnAWOjbF7w82mcbvUVwUA-AKlPMb2SBVRs5jAE47ClBo3ND8bRkH16Gz5B2qUToFCCZIn720ueDL94DcfWt20lAhsMIOnEnCsjfqXnqzrraj8iPSjTfH8AqAoAJL1XGWcYIz2GFIhnn_Gwk9IjuFaZL94YXvDwQYh08p8tr1ebF1C0Nd6Ec6Uuib3RhPEfM-xOp2r_Hdn-gqhjjb0HH2vagJY">
+</div>
+</main>
+<!-- Fixed Bottom Actions -->
+<div class="fixed bottom-0 left-0 w-full p-margin-mobile bg-gradient-to-t from-background via-background to-transparent pt-8 z-50">
+<button class="w-full h-16 bg-primary text-on-primary rounded-[16px] font-label-lg text-label-lg flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:bg-primary-container active:scale-95 transition-all disabled:opacity-50 disabled:grayscale" disabled="" id="saveButton" onclick="window.location.href='{{DATA:SCREEN:SCREEN_40}}'">
+            Save &amp; Continue
+            <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<script>
+        function selectLanguage(element) {
+            // Remove active state from all options
+            document.querySelectorAll('.language-option').forEach(opt => {
+                opt.classList.remove('active', 'bg-primary-container', 'text-on-primary-container', 'border-primary');
+                opt.classList.add('glass-card');
+                
+                // Reset radio icon
+                const indicator = opt.querySelector('.radio-indicator');
+                indicator.classList.remove('border-primary-container');
+                indicator.classList.add('border-outline');
+                opt.querySelector('.inner-dot').classList.add('scale-0');
+            });
+
+            // Set active state for clicked option
+            element.classList.add('bg-primary-container', 'text-on-primary-container', 'border-primary');
+            element.classList.remove('glass-card');
+            
+            const indicator = element.querySelector('.radio-indicator');
+            indicator.classList.remove('border-outline');
+            indicator.classList.add('border-on-primary-container');
+            element.querySelector('.inner-dot').classList.remove('scale-0');
+            element.querySelector('.inner-dot').classList.add('scale-100');
+
+            // Enable save button
+            const saveButton = document.getElementById('saveButton');
+            saveButton.removeAttribute('disabled');
+            
+            // Add a little haptic-like animation
+            element.style.transform = 'scale(0.96)';
+            setTimeout(() => {
+                element.style.transform = '';
+            }, 100);
+        }
+
+        // Simple Search Filtering Logic
+        document.querySelector('input[type="text"]').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const options = document.querySelectorAll('.language-option');
+            
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(term)) {
+                    option.style.display = 'flex';
+                } else {
+                    option.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

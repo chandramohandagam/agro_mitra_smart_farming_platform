@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra Marketplace</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        body {
+            background-color: #f7faf5;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#83da85",
+                        "surface-container": "#ecefea",
+                        "on-surface": "#181c1a",
+                        "on-surface-variant": "#40493d",
+                        "on-background": "#181c1a",
+                        "surface-container-high": "#e6e9e4",
+                        "surface-container-highest": "#e0e3df",
+                        "tertiary-fixed": "#ffdf9e",
+                        "surface": "#f7faf5",
+                        "on-secondary-fixed": "#002105",
+                        "tertiary-fixed-dim": "#fabd00",
+                        "surface-container-low": "#f1f4ef",
+                        "outline-variant": "#bfcaba",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary-fixed-variant": "#005318",
+                        "on-primary-fixed": "#002204",
+                        "tertiary": "#6d5100",
+                        "primary": "#0d631b",
+                        "secondary": "#126d27",
+                        "inverse-on-surface": "#eff2ed",
+                        "inverse-primary": "#88d982",
+                        "outline": "#707a6c",
+                        "secondary-container": "#9cf49c",
+                        "tertiary-container": "#8c6800",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#cbffc2",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dbd6",
+                        "primary-container": "#2e7d32",
+                        "surface-bright": "#f7faf5",
+                        "inverse-surface": "#2d312e",
+                        "background": "#f7faf5",
+                        "surface-variant": "#e0e3df",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#88d982",
+                        "on-tertiary-container": "#ffefd6",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#1b6d24",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#a3f69c",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#005312",
+                        "secondary-fixed": "#9ff79f",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-secondary-container": "#19722b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional high-resolution close-up portrait of a modern farmer wearing a clean checkered shirt, smiling warmly against a soft-focus background of a sunlit wheat field during the golden hour. The aesthetic is clean, trustworthy, and high-tech agricultural, following a premium light-mode visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQTnDzOovC3zlqasxznRP9ZsLHwVYthXjHJ2Nc0miBUq1UfL1vT5uP2E9ayNjisTROBdN8zUyBKM6a_G6prKD-nkP2RG1Wuz5Ay-jz0i09eKFQSzL55Dzl80-KgohdHhYsJpAQVMBvmYzD3DIP1KADiH4AWFR8cVOyRFkZxiREkxXRUdUzHZ9meelVUFm9QOD9w4rx9CaB5ibS-ftkyXsxC-03z3x8Gw43lonDScPUjcz_RerY7bo"/>
+</div>
+<span class="font-display-lg text-title-lg text-primary tracking-tight font-bold">Agro Mitra</span>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-20 pb-32 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Search & Hero Section -->
+<section class="mb-lg">
+<div class="flex flex-col gap-6">
+<div class="space-y-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Marketplace</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Find premium supplies for your modern farm.</p>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full max-w-2xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary/20 transition-all font-body-md text-body-md" placeholder="Search for seeds, fertilizers, or tools..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-on-primary px-4 py-2 rounded-xl font-label-lg text-label-lg active:scale-95 transition-transform">
+                        Filter
+                    </button>
+</div>
+</div>
+</section>
+<!-- Categories -->
+<section class="mb-xl overflow-x-auto">
+<div class="flex gap-4 pb-2 scrollbar-hide">
+<button class="flex-shrink-0 flex items-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-full shadow-md transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="potted_plant">potted_plant</span>
+<span class="font-label-lg text-label-lg">Seeds</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 bg-white text-on-surface-variant border border-outline-variant/30 px-5 py-3 rounded-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="Science">request_quote</span>
+<span class="font-label-lg text-label-lg">Fertilizers</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 bg-white text-on-surface-variant border border-outline-variant/30 px-5 py-3 rounded-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="construction">construction</span>
+<span class="font-label-lg text-label-lg">Tools</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 bg-white text-on-surface-variant border border-outline-variant/30 px-5 py-3 rounded-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="agriculture">agriculture</span>
+<span class="font-label-lg text-label-lg">Machinery</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 bg-white text-on-surface-variant border border-outline-variant/30 px-5 py-3 rounded-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="nest_eco_leaf">nest_eco_leaf</span>
+<span class="font-label-lg text-label-lg">Organic</span>
+</button>
+</div>
+</section>
+<!-- Trending in region (Asymmetric Bento Grid) -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-title-lg text-title-lg text-on-surface">Trending in your region</h2>
+<button class="text-primary font-label-lg text-label-lg flex items-center gap-1">
+                    See All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 relative h-[300px] rounded-3xl overflow-hidden shadow-sm group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="High-quality close up of organic golden wheat stalks swaying in a gentle breeze at sunrise. The lighting is ethereal and warm, suggesting high yields and premium quality. The overall aesthetic is minimalist, modern, and high-trust, perfectly suited for a professional agritech application marketplace hero section." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9N9MAjCNuDq-YspLr3c8uFxj0OeJcBH5OeGQQ4Hb7onS05OBuMw_rMrfiOKQ_nX8IQs7i3QN-73DpmXbVKbzfbl-9F_Knq1UmwOQ4B0i-jmJI1advxRZjh1G3zFcmoJK4N2VDBqGBvpytI1rjMCutDD7QnUz0sV8vit4gbDWGjXjI10_a4npDEbWTg2sZC4Zd0VSuI9kOD7sbIL1zQ2-b012xIb2dXc0WSckrk6GmpXpoJ_QIcsY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-lg w-full">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-label-sm font-label-sm uppercase tracking-wider">Top Pick</span>
+</div>
+<h3 class="text-white font-headline-lg-mobile text-headline-lg-mobile mb-2">Premium Hybrid Wheat Seeds</h3>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-white font-title-lg text-title-lg font-bold">₹2,499</span>
+<div class="flex items-center gap-1 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined fill-1" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-label-lg text-label-lg">4.9 (1.2k reviews)</span>
+</div>
+</div>
+<button class="bg-white/20 backdrop-blur-md text-white p-3 rounded-full hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Side Info Card -->
+<div class="bg-primary-container rounded-3xl p-lg flex flex-col justify-between text-on-primary-container shadow-sm relative overflow-hidden">
+
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="wb_sunny">wb_sunny</span>
+<h4 class="font-title-lg text-title-lg font-bold mb-2">Planting Forecast</h4>
+<p class="font-body-md text-body-md opacity-90">Ideal conditions expected next week for cereal crops in the Punjab region.</p>
+</div>
+<div class="relative z-10 mt-4 pt-4 border-t border-white/20">
+<div class="flex items-center justify-between text-label-lg font-label-lg">
+<span>Success Rate</span>
+<span>92%</span>
+</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full mt-2">
+<div class="bg-white h-full rounded-full w-[92%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products Grid -->
+<section class="mb-xl">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-md">Featured Products</h2>
+<div class="bento-grid">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-[24px] p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all group">
+<div class="aspect-square rounded-2xl overflow-hidden mb-3 bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A studio photograph of a premium, ergonomic handheld soil moisture sensor tool for modern farming. The device is sleek with a digital display showing clear icons, set against a clean white and soft green background. The lighting is professional and high-key, emphasizing precision and technological advancement in agriculture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw6zQvuJgwLIPgfyk0bDX5E4OWcpd6TvAon0HDp9d2DrOZ4tyCda0fbML6LxsHPCk0vOiN49EQwWA2-DXs1yhEbbfVvzsOXU3RZ9cqnMcTMmhhM_oSjUCN6qp3L-l6hHckyvC3oem3nBjykPQBc4QT48PQej2pgEIG6YGxE312B2wzJ7hW5NdRobhsNoVzAqY0kau9ceFhtKTIBsR_cBkwy-1jpgcyMSw05aej-smHJqLHn9UTJII"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<p class="text-outline text-label-sm font-label-sm mb-1 uppercase tracking-tighter">Tools</p>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold mb-2 line-clamp-1">Smart Moisture Probe Pro</h3>
+<div class="flex items-center gap-1 text-tertiary mb-3">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm font-bold">4.8</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-title-lg text-title-lg text-primary font-bold">₹1,850</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-[24px] p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all group">
+<div class="aspect-square rounded-2xl overflow-hidden mb-3 bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro studio shot of high-quality, dark brown liquid fertilizer in a premium glass bottle with a minimalist green label. Surroundings include small vibrant green sprouts, emphasizing growth and organic purity. Bright, clean light-mode aesthetic with soft shadows and sharp focus on the texture of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwSaVSyO5HbJkA-NHTv5rl_7PZ-A6MeTf6skgKUdzSg0sPNikmGqHblf_Lwn_YT2AKtFzFvyd1K3acE_mhChVOw6VTjqu6RrrF85XTdCLqPSs5VaCjbnjW_qZYhNpq0CkXC6SnjJVNmdmTp7xVuYfjF06uvQHEvywnN_hmDdRk-M7rxIfIr2B1tLZAtI233R5hLu5gZyRl79r8uyIkADZr4D9vMOSxI25VPBxUKkV7tu5niJVHJl8"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-outline transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<p class="text-outline text-label-sm font-label-sm mb-1 uppercase tracking-tighter">Fertilizer</p>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold mb-2 line-clamp-1">Nitro-Max Bio Booster</h3>
+<div class="flex items-center gap-1 text-tertiary mb-3">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm font-bold">4.7</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-title-lg text-title-lg text-primary font-bold">₹890</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-[24px] p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all group">
+<div class="aspect-square rounded-2xl overflow-hidden mb-3 bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Detailed close-up of premium, colorful treated corn seeds in a modern, sustainable paper packaging. The lighting is warm and invites confidence in the product's quality. Minimalist agricultural aesthetic, clean composition, high-end product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIANlfhH2Q--ymJkfsB7-VDr8jVy8Ce5vYCDqI-vfgYyYgKPgPknd8jTZnlceue4tEIafOTY5dVzmoDd6FGX03-h5ZsOTA_StCVy7cl2PhMRVdLdiN-Uj6p5hDUzbC8glNKu_KUphsbYsLPB_nvKbD0j5A0wk9HPrQ-G-tgnRSPwhMNtbrOdfeH03ADzHkwGCuUZ4Msg9Rhn_Fjfz2teewoERSARrEDlVtynhLdjF5UguGVo9M68E"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-outline transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<p class="text-outline text-label-sm font-label-sm mb-1 uppercase tracking-tighter">Seeds</p>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold mb-2 line-clamp-1">Golden Harvest Hybrid Corn</h3>
+<div class="flex items-center gap-1 text-tertiary mb-3">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm font-bold">4.9</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-title-lg text-title-lg text-primary font-bold">₹1,200</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded-[24px] p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all group">
+<div class="aspect-square rounded-2xl overflow-hidden mb-3 bg-surface-container-low relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional studio photo of a modern agriculture pruning shear with stainless steel blades and a green ergonomic handle. The product is shown from a 45-degree angle on a clean, light surface with soft shadows. The visual style is premium and high-tech, emphasizing durability and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADL3G3iD5nbOBbJt6AypOF85wJLcE1kyDAPHZ1vjrY-YXG8qIoZ3xHNr4nMw5T2pefL6HWGQvf2OlSxXhn8oL0K16TQQ3EbUBC7L59IkgEu6PH1VUUfODSsnON7ghAAQDhxtEDXhfsiQ3XGr3BkQH-kmwR_X0heCwQV4Wii090I1mMvr97KnAndzn8Qi310hSe1aAJ0DYyUrx_hyPPAmnmVdTpFgrkE7tHFDJCkZQPaT-Lct7MtsM"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-outline transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<p class="text-outline text-label-sm font-label-sm mb-1 uppercase tracking-tighter">Tools</p>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold mb-2 line-clamp-1">Precision Pruning Shears</h3>
+<div class="flex items-center gap-1 text-tertiary mb-3">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm font-bold">4.6</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-title-lg text-title-lg text-primary font-bold">₹650</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Regional Sellers / Map Insight -->
+<section class="mb-xl">
+<div class="glass-card rounded-[32px] overflow-hidden flex flex-col md:flex-row shadow-sm">
+<div class="p-lg md:w-1/2 flex flex-col justify-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface mb-4">Local Logistics</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Connect with 12 verified agricultural suppliers in your immediate area for same-day drone delivery.</p>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4 p-3 bg-surface rounded-2xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">AgriExpress Fleet</h4>
+<p class="text-label-sm font-label-sm text-outline">Active now • 2km away</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface rounded-2xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Community Seed Bank</h4>
+<p class="text-label-sm font-label-sm text-outline">Verified Partner</p>
+</div>
+</div>
+</div>
+</div>
+<div class="h-64 md:h-auto md:w-1/2 relative">
+<img class="w-full h-full object-cover" data-location="Ludhiana" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQZAFqtgeQbW6CVOfHJwAMVeySbOa8Ze4DnSsEsHWW7wdZ25xdJmTPDW6dpxfTMLHYwH9wnLv5Eab2Cj_WERqsu5fsu03oPDbY6rZreDFEqhJrfLpLs0saVTQru1CXy8hyxdD2ma1gKyh-q4sbvqC_3IAj4dhV2pPl38UwdbuWdoR33nT29_sRX6HgNpp1sAP7NhQXZFT5sRG8YabWOhs5sA9e1cB5ue-8fZqh-TI35so9RDthcts"/>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-primary/20 flex items-center gap-2 animate-bounce">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<span class="font-label-lg text-label-lg">Active Depot</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 dark:bg-surface-container/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center w-auto max-w-md mx-auto px-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="potted_plant">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</button>
+<!-- ACTIVE STATE: Market -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full w-12 h-12 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- FAB (Contextual for Marketplace) -->
+<button class="fixed bottom-28 right-6 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="shopping_cart">shopping_cart</span>
+<div class="absolute -top-1 -right-1 w-6 h-6 bg-error text-on-error rounded-full text-[10px] flex items-center justify-center font-bold border-2 border-white">2</div>
+</button>
+<script>
+        // Simple micro-interaction for chips
+        const chips = document.querySelectorAll('button.flex-shrink-0');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary', 'text-on-primary');
+                    c.classList.add('bg-white', 'text-on-surface-variant');
+                });
+                chip.classList.add('bg-primary', 'text-on-primary');
+                chip.classList.remove('bg-white', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

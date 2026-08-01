@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra - Login &amp; Registration</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#0d631b",
+                    "surface-container-high": "#e6e9e4",
+                    "primary-fixed-dim": "#88d982",
+                    "secondary": "#126d27",
+                    "surface-container-highest": "#e0e3df",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-tertiary-container": "#ffefd6",
+                    "surface-container-low": "#f1f4ef",
+                    "on-secondary-container": "#19722b",
+                    "secondary-container": "#9cf49c",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#83da85",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary-fixed": "#261a00",
+                    "tertiary-fixed": "#ffdf9e",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f7faf5",
+                    "surface": "#f7faf5",
+                    "surface-tint": "#1b6d24",
+                    "outline-variant": "#bfcaba",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005318",
+                    "primary-fixed": "#a3f69c",
+                    "primary-container": "#2e7d32",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#ecefea",
+                    "on-surface": "#181c1a",
+                    "on-secondary-fixed": "#002105",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d8dbd6",
+                    "tertiary": "#6d5100",
+                    "outline": "#707a6c",
+                    "surface-variant": "#e0e3df",
+                    "inverse-primary": "#88d982",
+                    "on-background": "#181c1a",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-surface-variant": "#40493d",
+                    "background": "#f7faf5",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#cbffc2",
+                    "inverse-surface": "#2d312e",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .step-hidden {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Decoration -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-primary-fixed/20 blur-[120px] rounded-full"></div>
+<div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-tertiary-fixed/20 blur-[120px] rounded-full"></div>
+</div>
+<!-- Main Content Container -->
+<main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-xl">
+<!-- Brand Identity Section (Floating Above) -->
+<div class="mb-xl text-center fade-in">
+<div class="inline-flex items-center justify-center w-20 h-20 bg-primary-container text-on-primary-container rounded-[24px] mb-md shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined !text-[40px]" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight">Agro Mitra</h1>
+<p class="font-body-lg text-on-surface-variant mt-xs">Cultivating Smarter Connections</p>
+</div>
+<!-- Authentication Card -->
+<div class="w-full max-w-md glass-panel rounded-[32px] p-lg md:p-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.04)] fade-in" style="animation-delay: 0.1s;">
+<!-- Welcome Step -->
+<div class="space-y-xl" id="step-welcome">
+<div class="text-center">
+<h2 class="font-title-lg text-on-surface">Welcome Farmer</h2>
+<p class="font-body-md text-on-surface-variant mt-2">Sign in or create an account to manage your farm yield and marketplace.</p>
+</div>
+<div class="aspect-video w-full rounded-[24px] overflow-hidden mb-lg relative">
+<img class="w-full h-full object-cover" data-alt="A lush, high-resolution close-up of vibrant green tea leaves covered in morning dew, shot with a shallow depth of field in soft, warm sunrise lighting. The aesthetic is clean, professional, and evokes a sense of organic growth and high-tech precision agriculture. The colors are dominated by rich nature greens and soft golden highlights, fitting a premium light-mode UI design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDP5AoWgrKQYEAKnaZU9yPRlBN1zRhBX_Kw0I5hRWWTpjIA6yqOEE2JbloggkYmwk7zCeIfaHGxwkEnqBFtUde0cBFjHTk2t_2rf-W5Q_Lw_9C2ZN56hnJ7CRMBF69WKkFIgvlrMlJJNS7qxKzBzvK82KS4zsy4cppQ6wwATqEi4SmVlWDF7z2gWY70hZnIHSMCH0uKKQ4IYovopn-pp2z7Q8jb6-6r83C-igU4Z33VZqTuQAg4Jw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary font-label-lg rounded-full flex items-center justify-center gap-2 active:scale-95 transition-transform duration-200 shadow-md" onclick="transitionStep('step-welcome', 'step-auth')">
+                    Get Started
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Auth/Phone Step -->
+<div class="step-hidden space-y-xl" id="step-auth">
+<button class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-md" onclick="transitionStep('step-auth', 'step-welcome')">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-lg">Back</span>
+</button>
+<div class="space-y-xs">
+<h2 class="font-title-lg text-on-surface">Join Agro Mitra</h2>
+<p class="font-body-md text-on-surface-variant">Enter your mobile number to receive a secure login code.</p>
+</div>
+<div class="space-y-lg">
+<div class="relative">
+<label class="absolute -top-3 left-6 bg-white px-2 text-label-sm text-primary font-medium">Mobile Number</label>
+<div class="flex items-center gap-3 w-full h-16 bg-surface-container-low rounded-[20px] px-6 border-2 border-transparent focus-within:border-primary transition-all">
+<span class="text-on-surface-variant font-medium">+91</span>
+<div class="w-[1px] h-6 bg-outline-variant/50"></div>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-lg text-on-surface tracking-[0.2em] placeholder:tracking-normal placeholder:text-outline-variant" placeholder="00000 00000" type="tel"/>
+</div>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary font-label-lg rounded-full flex items-center justify-center gap-2 active:scale-95 transition-transform duration-200" onclick="transitionStep('step-auth', 'step-otp')">
+                        Send OTP Code
+                    </button>
+<div class="flex items-center gap-4 py-4">
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+<span class="text-label-sm text-on-surface-variant font-medium uppercase tracking-widest">or continue with</span>
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="h-14 border border-outline-variant/50 rounded-full flex items-center justify-center gap-3 hover:bg-surface-container transition-colors active:scale-95 duration-100">
+<img alt="Google" class="w-6 h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY5hXPBisR8UJ-Rjr-XYmloNIEoflRXAcshP4WSwm7I5ET475TrdFUiSGej3mWovbuuSUURGccFjLQg0LrrxjASHkkIR3ujFG_EN_BFbDjIP-WT17NxrjFVDvtHX7hIL9cy7PrGrm7tgv8POyahy_R8rA7RQt5bkQoVvN5e8ulQY6x97llMDuT14jDb5mEp5JkHMJMW-gIDSGkb9jzC28bJ3-Eeokxu-G6xyKqRHX65oghTbpIDDQ"/>
+<span class="font-label-lg text-on-surface">Google</span>
+</button>
+<button class="h-14 border border-outline-variant/50 rounded-full flex items-center justify-center gap-3 hover:bg-surface-container transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-on-surface" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span class="font-label-lg text-on-surface">Email</span>
+</button>
+</div>
+</div>
+</div>
+<!-- OTP Step -->
+<div class="step-hidden space-y-xl" id="step-otp">
+<button class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-md" onclick="transitionStep('step-otp', 'step-auth')">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-lg">Change Number</span>
+</button>
+<div class="space-y-xs">
+<h2 class="font-title-lg text-on-surface">Verify Identity</h2>
+<p class="font-body-md text-on-surface-variant">We've sent a 6-digit verification code to <span class="text-on-surface font-semibold">+91 98765 •••••</span></p>
+</div>
+<div class="space-y-xl">
+<div class="flex justify-between gap-2 md:gap-3">
+<input class="otp-input w-12 h-14 md:w-14 md:h-16 text-center text-headline-lg-mobile font-bold bg-surface-container-low rounded-xl border-2 border-transparent focus:border-primary focus:bg-white transition-all outline-none text-primary" maxlength="1" type="text"/>
+<input class="otp-input w-12 h-14 md:w-14 md:h-16 text-center text-headline-lg-mobile font-bold bg-surface-container-low rounded-xl border-2 border-transparent focus:border-primary focus:bg-white transition-all outline-none text-primary" maxlength="1" type="text"/>
+<input class="otp-input w-12 h-14 md:w-14 md:h-16 text-center text-headline-lg-mobile font-bold bg-surface-container-low rounded-xl border-2 border-transparent focus:border-primary focus:bg-white transition-all outline-none text-primary" maxlength="1" type="text"/>
+<input class="otp-input w-12 h-14 md:w-14 md:h-16 text-center text-headline-lg-mobile font-bold bg-surface-container-low rounded-xl border-2 border-transparent focus:border-primary focus:bg-white transition-all outline-none text-primary" maxlength="1" type="text"/>
+<input class="otp-input w-12 h-14 md:w-14 md:h-16 text-center text-headline-lg-mobile font-bold bg-surface-container-low rounded-xl border-2 border-transparent focus:border-primary focus:bg-white transition-all outline-none text-primary" maxlength="1" type="text"/>
+<input class="otp-input w-12 h-14 md:w-14 md:h-16 text-center text-headline-lg-mobile font-bold bg-surface-container-low rounded-xl border-2 border-transparent focus:border-primary focus:bg-white transition-all outline-none text-primary" maxlength="1" type="text"/>
+</div>
+<div class="text-center">
+<p class="text-body-md text-on-surface-variant">Didn't receive the code?</p>
+<button class="text-primary font-label-lg hover:underline mt-1">Resend in 00:45</button>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary font-label-lg rounded-full flex items-center justify-center gap-2 active:scale-95 transition-transform duration-200" onclick="handleLoginSuccess()">
+                        Verify &amp; Login
+                    </button>
+</div>
+</div>
+<!-- Success Overlay (Hidden) -->
+<div class="step-hidden flex flex-col items-center py-xl text-center" id="step-success">
+<div class="w-24 h-24 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-lg scale-in shadow-xl shadow-primary/10">
+<span class="material-symbols-outlined !text-[48px]">check_circle</span>
+</div>
+<h2 class="font-headline-lg-mobile text-primary">Welcome Back!</h2>
+<p class="font-body-lg text-on-surface-variant mt-2 px-6">Your authentication was successful. Redirecting you to your farm dashboard...</p>
+<div class="mt-xl flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-bounce"></div>
+<div class="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:0.2s]"></div>
+<div class="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:0.4s]"></div>
+</div>
+</div>
+</div>
+<!-- Accessibility & Legal -->
+<footer class="mt-xl text-center space-y-2 fade-in" style="animation-delay: 0.2s;">
+<p class="text-label-sm text-on-surface-variant">Securely encrypted end-to-end</p>
+<div class="flex gap-4 text-label-sm text-on-surface-variant/80 font-medium">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<span class="w-1 h-1 rounded-full bg-outline-variant mt-2"></span>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        function transitionStep(currentId, nextId) {
+            const current = document.getElementById(currentId);
+            const next = document.getElementById(nextId);
+            
+            current.classList.add('fade-out');
+            setTimeout(() => {
+                current.classList.add('step-hidden');
+                next.classList.remove('step-hidden');
+                next.classList.add('fade-in');
+            }, 300);
+        }
+
+        function handleLoginSuccess() {
+            transitionStep('step-otp', 'step-success');
+            // Mock redirect after 2 seconds
+            setTimeout(() => {
+                console.log('Redirecting to dashboard...');
+            }, 2000);
+        }
+
+        // Auto-focus OTP inputs
+        const inputs = document.querySelectorAll('.otp-input');
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        // Background Paralax Hover Effect
+        document.addEventListener('mousemove', (e) => {
+            const amount = 30;
+            const x = (e.clientX / window.innerWidth - 0.5) * amount;
+            const y = (e.clientY / window.innerHeight - 0.5) * amount;
+            const bg = document.querySelector('.fixed');
+            bg.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+<style>
+        .fade-out {
+            animation: fadeOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-10px); }
+        }
+        .scale-in {
+            animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+    </style>
+</body></html>

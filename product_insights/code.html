@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agro Mitra | Advanced Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ffefd6",
+                    "tertiary-fixed-dim": "#fabd00",
+                    "on-secondary-fixed": "#002105",
+                    "inverse-on-surface": "#eff2ed",
+                    "on-surface-variant": "#40493d",
+                    "inverse-surface": "#2d312e",
+                    "surface-bright": "#f7faf5",
+                    "secondary": "#126d27",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdf9e",
+                    "tertiary": "#6d5100",
+                    "on-tertiary-fixed": "#261a00",
+                    "surface-container": "#ecefea",
+                    "primary": "#0d631b",
+                    "background": "#f7faf5",
+                    "surface-container-low": "#f1f4ef",
+                    "secondary-fixed-dim": "#83da85",
+                    "surface-container-highest": "#e0e3df",
+                    "on-primary-container": "#cbffc2",
+                    "on-secondary-fixed-variant": "#005318",
+                    "on-secondary-container": "#19722b",
+                    "outline": "#707a6c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005312",
+                    "primary-container": "#2e7d32",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#181c1a",
+                    "secondary-fixed": "#9ff79f",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#9cf49c",
+                    "primary-fixed": "#a3f69c",
+                    "surface-variant": "#e0e3df",
+                    "on-background": "#181c1a",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e9e4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#1b6d24",
+                    "inverse-primary": "#88d982",
+                    "tertiary-container": "#8c6800",
+                    "on-primary-fixed": "#002204",
+                    "surface-dim": "#d8dbd6",
+                    "surface": "#f7faf5",
+                    "primary-fixed-dim": "#88d982"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F7FAF5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(224, 224, 224, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar {
+            transition: height 1s ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="pb-32 md:pb-8">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-bright/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">analytics</span>
+<h1 class="font-display-lg text-title-lg text-primary tracking-tight">Agro Mitra</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-high rounded-full transition-colors active:scale-95 duration-100">search</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-high rounded-full transition-colors active:scale-95 duration-100">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate agricultural executive in a bright, modern office with soft sunlight streaming through the windows. The executive wears a minimalist white shirt, reflecting a clean, light-mode aesthetic. The background features blurred green plants and high-tech agricultural displays, maintaining a sophisticated and reliable brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlIlY-znMScoV8XOizKsFFULIESthdhgtuzr-qZuc02q_Oo1f_KvtEnWzE_wmxI4Cjr4DtxPPzFy9o_JH7uT7YlHypCphW1yXpTD-ZTMMB7LbCNQxWcI--hccNUQisG_AZqdNOuNzArV-r84y392mkU-6tA0zS-LVCqygn0UGzyrAjafFYst8zsyilgPRlmX9c2afnmmKVrCCfE4dIphLg6A794XMVs58_PuUlPUmW9DAkGFvivzc"/>
+</div>
+</div>
+</header>
+<main class="mt-20 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<section class="mb-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-widest">Global Dashboard</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-1">Product Analytics</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                        Last 30 Days
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-xl font-label-lg text-label-lg hover:bg-primary-container transition-all shadow-md">
+<span class="material-symbols-outlined text-sm">file_download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Analytics -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Sales Trends (Main Focus) -->
+<div class="md:col-span-8 bg-white rounded-[24px] border border-outline-variant/30 p-xl shadow-sm relative overflow-hidden">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Sales Performance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time revenue tracking across all product lines.</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low p-1 rounded-lg">
+<button class="px-3 py-1 bg-white shadow-sm rounded-md font-label-sm text-label-sm text-primary">Revenue</button>
+<button class="px-3 py-1 font-label-sm text-label-sm text-on-surface-variant hover:bg-white/50 transition-colors">Volume</button>
+</div>
+</div>
+<!-- Simple Vector Chart Placeholder -->
+<div class="h-64 flex items-end justify-between gap-2 md:gap-4 mt-8">
+<div class="flex-1 bg-primary/10 rounded-t-lg relative group h-[40%]">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹4.2M</div>
+<div class="absolute bottom-0 w-full bg-primary/20 h-1/2 rounded-t-lg"></div>
+</div>
+<div class="flex-1 bg-primary/10 rounded-t-lg relative group h-[60%]">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹5.8M</div>
+<div class="absolute bottom-0 w-full bg-primary/40 h-1/2 rounded-t-lg"></div>
+</div>
+<div class="flex-1 bg-primary/10 rounded-t-lg relative group h-[85%]">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹8.1M</div>
+<div class="absolute bottom-0 w-full bg-primary/60 h-1/2 rounded-t-lg"></div>
+</div>
+<div class="flex-1 bg-primary/10 rounded-t-lg relative group h-[55%]">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹5.2M</div>
+<div class="absolute bottom-0 w-full bg-primary/30 h-1/2 rounded-t-lg"></div>
+</div>
+<div class="flex-1 bg-primary/10 rounded-t-lg relative group h-[70%]">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">₹6.9M</div>
+<div class="absolute bottom-0 w-full bg-primary/50 h-1/2 rounded-t-lg"></div>
+</div>
+<div class="flex-1 bg-primary rounded-t-lg relative group h-[100%] shadow-lg shadow-primary/20">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] px-2 py-1 rounded opacity-100 transition-opacity font-bold">₹10.4M</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant/20 pt-4">
+<span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span class="text-primary font-bold">JUN (CUR)</span>
+</div>
+</div>
+<!-- AI Market Forecast -->
+<div class="md:col-span-4 bg-primary-container text-on-primary-container rounded-[24px] p-xl relative overflow-hidden shadow-xl">
+
+<div class="relative z-10 h-full flex flex-col">
+<div class="bg-white/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-md backdrop-blur-md">
+<span class="material-symbols-outlined text-white">psychology</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-white mb-2">AI Forecast</h3>
+<p class="font-body-md text-body-md text-white/80 mb-lg">Based on satellite imagery and historical weather patterns, Q3 demand is expected to spike.</p>
+<div class="mt-auto space-y-4">
+<div class="bg-white/10 p-4 rounded-2xl backdrop-blur-md border border-white/10">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-lg text-label-lg text-white">Demand Growth</span>
+<span class="font-label-lg text-label-lg text-white">+24.8%</span>
+</div>
+<div class="w-full bg-white/20 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed w-3/4 h-full"></div>
+</div>
+</div>
+<div class="bg-white/10 p-4 rounded-2xl backdrop-blur-md border border-white/10">
+<div class="flex justify-between items-center">
+<span class="font-label-lg text-label-lg text-white">Confidence Score</span>
+<span class="font-label-lg text-label-lg text-white">92%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inventory Distribution Map -->
+<div class="md:col-span-12 lg:col-span-7 bg-white rounded-[24px] border border-outline-variant/30 p-xl shadow-sm overflow-hidden h-[400px] flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Regional Distribution</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Inventory stock levels across major agrarian hubs.</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Active Hubs: 14</span>
+</div>
+<div class="flex-grow rounded-2xl overflow-hidden border border-outline-variant/20 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean, minimalist high-tech digital map of India with stylized green glowing pins indicating major agricultural regional hubs. The aesthetic is modern and data-driven, with a subtle grid overlay and soft ambient shadows. The colors are dominated by nature greens and light surface whites, maintaining a professional glassmorphic UI feel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwWItt_tgRKC_DniLlYUxmklrHZ83aIDDkzBpglHidAGmrFjsisi7n_e3gS6MnP6M-FE4aSObfrXAuncpN-AjN4zwgY81RW7SDvldun5_Re2QVcQPRVQYvtKonzG4FGcYFmp5hDsFmJqiFff2RCyfOt5lqcGu3Ez-YsnJaRCDdMF9NjRS1pP33wn9d-Djt2egEH8Jz3NBBO2TeVfiGIdiL6DaMPTBV6xObAbZAEFmVh67M1ZrnjjY')"></div>
+<!-- Mock Pointers -->
+<div class="absolute top-1/4 left-1/3 group">
+<div class="w-4 h-4 bg-primary rounded-full border-2 border-white shadow-lg animate-pulse"></div>
+<div class="absolute left-6 top-0 bg-white p-2 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity w-32 border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-primary font-bold">North Hub</p>
+<p class="text-[10px] text-on-surface-variant">Capacity: 84%</p>
+</div>
+</div>
+<div class="absolute bottom-1/3 right-1/4 group">
+<div class="w-4 h-4 bg-error rounded-full border-2 border-white shadow-lg"></div>
+<div class="absolute left-6 top-0 bg-white p-2 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity w-32 border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-error font-bold">South Hub</p>
+<p class="text-[10px] text-on-surface-variant">Stock Low: 12%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sentiment Analysis -->
+<div class="md:col-span-12 lg:col-span-5 bg-white rounded-[24px] border border-outline-variant/30 p-xl shadow-sm flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md">Market Sentiment</h3>
+<div class="flex items-center gap-6 mb-lg p-4 bg-surface-container-low rounded-2xl">
+<div class="text-center">
+<div class="text-3xl font-bold text-primary">4.8</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Rating</div>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-4">5</span>
+<div class="flex-grow bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary w-[85%] h-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-4">4</span>
+<div class="flex-grow bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary w-[10%] h-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-4">3</span>
+<div class="flex-grow bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary w-[5%] h-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4 overflow-y-auto max-h-[220px] pr-2">
+<div class="p-3 border-b border-outline-variant/10">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-lg text-label-lg text-on-surface">Rajesh K. (Farmer)</span>
+<span class="text-xs text-on-surface-variant">2h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"The organic nutrient mix has significantly improved my yield consistency this season."</p>
+</div>
+<div class="p-3 border-b border-outline-variant/10">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-lg text-label-lg text-on-surface">Agri-Solutions Ltd.</span>
+<span class="text-xs text-on-surface-variant">5h ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Strong dealer demand for Bio-Fertilizers. Stocking up for the upcoming Kharif season."</p>
+</div>
+</div>
+</div>
+<!-- Organic vs Chemical Comparison -->
+<div class="md:col-span-12 bg-white rounded-[24px] border border-outline-variant/30 p-xl shadow-sm">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-xl">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Product Composition Performance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Comparative analysis of Organic vs. Conventional Chemical lines.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Organic</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chemical</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="space-y-6">
+<h4 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wide">Market Share</h4>
+<div class="relative h-48 flex items-center justify-center">
+<svg class="w-40 h-40 transform -rotate-90">
+<circle class="text-tertiary-fixed-dim" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="20"></circle>
+<circle class="text-primary" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="132" stroke-width="20"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">70%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Organic Lead</span>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wide">Efficiency Metrics</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md text-on-surface">Repeat Purchase Rate (Organic)</span>
+<span class="font-label-lg text-label-lg text-primary">82%</span>
+</div>
+<div class="w-full bg-surface-container h-3 rounded-full">
+<div class="bg-primary w-[82%] h-full rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md text-on-surface">Repeat Purchase Rate (Chemical)</span>
+<span class="font-label-lg text-label-lg text-tertiary">45%</span>
+</div>
+<div class="w-full bg-surface-container h-3 rounded-full">
+<div class="bg-tertiary-fixed-dim w-[45%] h-full rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-8 left-4 right-4 rounded-full z-50 h-16 bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] flex justify-around items-center px-2 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">potted_plant</span>
+<span class="font-label-sm text-label-sm">My Farm</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 rounded-full active:scale-90 transition-transform duration-200 p-2">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Desktop Sidebar/Nav Mockup (Simplified for the layout) -->
+<div class="hidden md:flex fixed left-0 top-16 bottom-0 w-20 bg-white border-r border-outline-variant/30 flex-col items-center py-8 gap-8">
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+</button>
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center bg-primary-container text-on-primary-container shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">analytics</span>
+</button>
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">inventory_2</span>
+</button>
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">groups</span>
+</button>
+<div class="mt-auto">
+<button class="w-12 h-12 rounded-2xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<script>
+        // Micro-interactions and data animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate progress bars on scroll
+            const observerOptions = { threshold: 0.2 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-reveal');
+                    }
+                });
+            }, observerOptions);
+
+            // Simple hover effects for chart interaction
+            const chartBars = document.querySelectorAll('.group');
+            chartBars.forEach(bar => {
+                bar.addEventListener('mouseenter', () => {
+                    bar.querySelector('.absolute.-top-10')?.classList.remove('opacity-0');
+                });
+                bar.addEventListener('mouseleave', () => {
+                    if(!bar.classList.contains('h-[100%]')) {
+                        bar.querySelector('.absolute.-top-10')?.classList.add('opacity-0');
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>
